@@ -85,46 +85,63 @@ function MyChild1(props: ChildProps, ref: Ref<HTMLDivElement>): JSX.Element {
   )
 }
 
-const ChildWrapper = forwardRef<HTMLDivElement, ChildProps>(MyChild1);
+type YoutubePageProps = {
+  url: string
+}
 
-function PageFooter(): JSX.Element {
-  const parentRef = useRef<HTMLDivElement>(null);
+function YoutubePage(props: YoutubePageProps): JSX.Element {
+  useEffect(() => {
+    console.info(`[YoutubePage] url: [${props.url}]`)
+  }, [props.url])
+
   return (
-    <div style={{ border: "1px solid black", backgroundColor: "#202020", color: "#ffffff", padding: "8px", width: "100%" }} ref={parentRef}>
-      footer
-      <ChildWrapper ref={parentRef} />
+    <div className="content" style={{ padding: "20px", width: "100%", border: "1px solid black" }}>
+      {/* <iframe src={props.url} width="100%" height="500px" /> */}
+      <iframe width="1008" height="567" src={props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
   )
+}
+
+type DefaultPageProps = {
+  menuitem: string
 }
 
 /**
  * ページを構成する基本コンポーネント
  */
-export function DefaultPage(): JSX.Element {
+export function DefaultPage(props: DefaultPageProps): JSX.Element {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    console.info(`[App] count: [${count}]`)
+    console.info(`[DefaultPage] count: [${count}]`)
   }, [count])
 
   // ランダムな数値によって、コンテンツを変化させています。
   const randomValue = Math.random() * 100
 
   useEffect(() => {
-    console.info(`[App] randomValue: [${randomValue}]`)
+    console.info(`[DefaultPage] randomValue: [${randomValue}]`)
   }, [randomValue])
 
-  if (90 <= randomValue) {
-    return (
-      <>
-        <h2>90 以上のページ</h2>
-        <MyComponent1 />
-      </>
-    )
+  useEffect(() => {
+    console.info(`[DefaultPage] menuitem: [${props.menuitem}]`)
+  }, [props.menuitem])
+
+  // if (90 <= randomValue) {
+  //   return (
+  //     <>
+  //       <h2>90 以上のページ</h2>
+  //       <MyComponent1 />
+  //     </>
+  //   )
+  // }
+
+  if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
+    return <YoutubePage url={props.menuitem} />
   }
 
   return (
-    <div style={{ padding: "0", width: "100%", border: "0px solid black" }}>
+    <div className="content" style={{ padding: "20px", width: "100%", border: "1px solid black" }}>
       <h1>Vite + React のコンテンツ</h1>
       <p className="read-the-docs">
         &nbsp;
@@ -164,7 +181,6 @@ export function DefaultPage(): JSX.Element {
       <p className="read-the-docs">
         &nbsp;
       </p>
-      <PageFooter />
     </div>
   )
 }
