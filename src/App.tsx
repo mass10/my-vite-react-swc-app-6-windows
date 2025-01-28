@@ -26,14 +26,18 @@ function App(): JSX.Element {
 
   return (
     <>
+      {/* ヘッダー */}
       <Header />
       <div style={{ display: "flex" }}>
+        {/* サイドバー */}
         <Sidebar pageContext={pageContext} handleAnchor={(menuitem) => {
           console.info(`[App] menuitem: [${menuitem}]`)
           setMenuitem(menuitem)
         }} />
+        {/* コンテンツ */}
         <DefaultPage menuitem={menuitem} />
       </div>
+      {/* フッター */}
       <Footer />
     </>
   )
