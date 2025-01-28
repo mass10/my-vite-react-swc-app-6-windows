@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, Ref, useEffect, useRef, useState } from "react"
+import { ComponentPropsWithoutRef, CSSProperties, Ref, useEffect, useState } from "react"
 
 interface MyRectangle {
   x: number,
@@ -55,21 +55,6 @@ function UiComponent3({ color = "#ffffff", ...props }: UiComponent3Properties): 
 // @ts-ignore
 function UiComponent4(props: ComponentPropsWithoutRef<"div">): JSX.Element {
   return <div></div>
-}
-
-type Props = {
-
-}
-
-/**
- * フルスクリーン UI コンポーネント
- */
-function MyComponent1({ }: Props): JSX.Element {
-  return (
-    <>
-      <h1>MyComponent1</h1>
-    </>
-  )
 }
 
 type ChildProps = {
