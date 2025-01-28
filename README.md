@@ -48,3 +48,14 @@ export default tseslint.config({
   },
 })
 ```
+
+
+
+
+# Others
+
+```sh
+npm install @chakra-ui/react@^3.3.1
+npm install @chakra-ui/system
+npm install @chakra-ui/utils
+```
