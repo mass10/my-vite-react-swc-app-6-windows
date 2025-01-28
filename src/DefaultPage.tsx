@@ -1,6 +1,4 @@
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, Ref, RefObject, useEffect, useRef, useState } from "react"
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { ComponentPropsWithoutRef, CSSProperties, forwardRef, Ref, useEffect, useRef, useState } from "react"
 
 interface MyRectangle {
   x: number,
@@ -54,6 +52,7 @@ function UiComponent3({ color = "#ffffff", ...props }: UiComponent3Properties): 
   return <div style={style}></div>
 }
 
+// @ts-ignore
 function UiComponent4(props: ComponentPropsWithoutRef<"div">): JSX.Element {
   return <div></div>
 }
