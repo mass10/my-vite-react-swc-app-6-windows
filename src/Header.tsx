@@ -1,5 +1,5 @@
 
-export function Header(): JSX.Element {
+export function HeaderPane(): JSX.Element {
     return (
         <header>
             <div style={{ padding: "20px", width: "100%", border: "1px solid black", backgroundColor: "#202020", color: "#ffffff", textAlign: "left" }}>
