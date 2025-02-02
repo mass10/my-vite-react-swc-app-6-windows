@@ -1,4 +1,9 @@
 import { ComponentPropsWithoutRef, CSSProperties, Ref, useEffect, useState } from "react"
+import { UrlTestForm } from "./UrlTestForm";
+
+function generateRandomToken(): string {
+  return Math.random().toString(36).slice(-8)
+}
 
 interface MyRectangle {
   x: number,
@@ -89,83 +94,72 @@ function YoutubePage(props: YoutubePageProps): JSX.Element {
 
 type DefaultPageProps = {
   menuitem: string
+  random: string
 }
 
 /**
  * ページを構成する基本コンポーネント
  */
-export function DefaultPage(props: DefaultPageProps): JSX.Element {
+export function ContentPane(props: DefaultPageProps): JSX.Element {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
     console.info(`[DefaultPage] count: [${count}]`)
   }, [count])
 
-  // ランダムな数値によって、コンテンツを変化させています。
-  const randomValue = Math.random() * 100
-
-  useEffect(() => {
-    console.info(`[DefaultPage] randomValue: [${randomValue}]`)
-  }, [randomValue])
-
   useEffect(() => {
     console.info(`[DefaultPage] menuitem: [${props.menuitem}]`)
   }, [props.menuitem])
 
-  // if (90 <= randomValue) {
-  //   return (
-  //     <>
-  //       <h2>90 以上のページ</h2>
-  //       <MyComponent1 />
-  //     </>
-  //   )
-  // }
-
   if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
     return <YoutubePage url={props.menuitem} />
   }
-
-  return (
-    <div className="content" style={{ padding: "20px", width: "100%", border: "1px solid black" }}>
-      <h1>Vite + React のコンテンツ</h1>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+  else if (0 <= props.menuitem.indexOf("チャレンジ1")) {
+    return <UrlTestForm update={generateRandomToken()} />
+  }
+  else {
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%", border: "1px solid black" }}>
+        <h1>Vite + React のコンテンツ</h1>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+          <p>
+            Edit <code>src/App.tsx</code> and save to test HMR
+          </p>
+        </div>
+        <p className="read-the-docs">
+          Click on the Vite and React logos to learn more
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
+        </p>
+        <p className="read-the-docs">
+          &nbsp;
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-      <p className="read-the-docs">
-        &nbsp;
-      </p>
-    </div>
-  )
+    )
+  }
 }
