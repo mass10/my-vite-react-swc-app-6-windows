@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { DefaultPage } from './DefaultPage'
-import { Header } from './Header'
-import { Sidebar } from './Sidebar'
+import { ContentPane } from './DefaultPage'
+import { HeaderPane } from './Header'
+import { SidebarPane } from './Sidebar'
 import { Footer } from './Footer'
 
-
-
+// function generateRandomToken(): string {
+//   return Math.random().toString(36).slice(-8)
+// }
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -23,19 +24,21 @@ function App(): JSX.Element {
   }
 
   const [menuitem, setMenuitem] = useState<string>('')
+  const [currentTimestamp, setCurrentTimestamp] = useState<number>(Date.now())
 
   return (
     <>
       {/* ヘッダー */}
-      <Header />
+      <HeaderPane />
       <div style={{ display: "flex" }}>
         {/* サイドバー */}
-        <Sidebar pageContext={pageContext} handleAnchor={(menuitem) => {
+        <SidebarPane pageContext={pageContext} handleAnchor={(menuitem) => {
           console.info(`[App] menuitem: [${menuitem}]`)
           setMenuitem(menuitem)
+          setCurrentTimestamp(Date.now())
         }} />
         {/* コンテンツ */}
-        <DefaultPage menuitem={menuitem} />
+        <ContentPane menuitem={menuitem} random={"" + currentTimestamp} />
       </div>
       {/* フッター */}
       <Footer />
