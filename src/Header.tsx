@@ -1,7 +1,7 @@
 
 export function HeaderPane(): JSX.Element {
     return (
-        <header>
+        <header id="header-pane">
             <div style={{ padding: "20px", width: "100%", border: "1px solid black", backgroundColor: "#202020", color: "#ffffff", textAlign: "left" }}>
                 <a href="/" style={{ fontSize: "26px", textDecoration: "none", color: "#ffffff" }}>React.js のウェブサイト</a>
             </div>
