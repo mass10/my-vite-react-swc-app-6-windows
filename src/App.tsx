@@ -9,6 +9,11 @@ import { Footer } from './Footer'
 //   return Math.random().toString(36).slice(-8)
 // }
 
+function getElementHeight(elementId: string): number {
+  const e = document.getElementById(elementId);
+  return e?.clientHeight || 0
+}
+
 function App(): JSX.Element {
   useEffect(() => {
     console.info(`[App] $$$ LOAD $$$`)
@@ -26,11 +31,20 @@ function App(): JSX.Element {
   const [menuitem, setMenuitem] = useState<string>('')
   const [currentTimestamp, setCurrentTimestamp] = useState<number>(Date.now())
 
+  useEffect(() => {
+    const headerHeight = getElementHeight("header-pane")
+    const contentAreaHeight = getElementHeight("content-base-pane");
+    const footerHeight = getElementHeight("footer-pane")
+    const pageHeight = window.innerHeight;
+
+    console.info(`[App] header height: [${headerHeight}], content-pane 高さ: [${contentAreaHeight}], footer height: [${footerHeight}], page height: [${pageHeight}]`)
+  }, []);
+
   return (
     <>
       {/* ヘッダー */}
       <HeaderPane />
-      <div style={{ display: "flex" }}>
+      <div id="content-base-pane" style={{ display: "flex", height: "calc(100vh - 80px - 89px - 2px)" }}>
         {/* サイドバー */}
         <SidebarPane pageContext={pageContext} handleAnchor={(menuitem) => {
           console.info(`[App] menuitem: [${menuitem}]`)
