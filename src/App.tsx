@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { ContentPane } from './DefaultPage'
-import { HeaderPane } from './Header'
-import { SidebarPane } from './Sidebar'
-import { Footer } from './Footer'
-
-// function generateRandomToken(): string {
-//   return Math.random().toString(36).slice(-8)
-// }
+import { ContentPanel } from './ContentPanel'
+import { HeaderPanel } from './HeaderPanel'
+import { SidePanel } from './SidePanel'
+import { FooterPanel } from './FooterPanel'
 
 function getElementHeight(elementId: string): number {
   const e = document.getElementById(elementId);
   return e?.clientHeight || 0
 }
 
+/**
+ * アプリケーション ルート コンポーネント
+ */
 function App(): JSX.Element {
   useEffect(() => {
     console.info(`[App] $$$ LOAD $$$`)
@@ -43,19 +42,19 @@ function App(): JSX.Element {
   return (
     <>
       {/* ヘッダー */}
-      <HeaderPane />
-      <div id="content-base-pane" style={{ display: "flex", height: "calc(100vh - 80px - 89px - 2px)" }}>
+      <HeaderPanel />
+      <div id="content-base-pane" style={{ display: "flex", height: "calc(100vh - 80px - 122px - 2px)" }}>
         {/* サイドバー */}
-        <SidebarPane pageContext={pageContext} handleAnchor={(menuitem) => {
+        <SidePanel pageContext={pageContext} handleAnchor={(menuitem) => {
           console.info(`[App] menuitem: [${menuitem}]`)
           setMenuitem(menuitem)
           setCurrentTimestamp(Date.now())
         }} />
         {/* コンテンツ */}
-        <ContentPane menuitem={menuitem} random={"" + currentTimestamp} />
+        <ContentPanel menuitem={menuitem} random={"" + currentTimestamp} />
       </div>
       {/* フッター */}
-      <Footer />
+      <FooterPanel />
     </>
   )
 }
