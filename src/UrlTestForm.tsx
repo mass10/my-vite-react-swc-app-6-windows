@@ -1,5 +1,3 @@
-import { Button, Input } from "@chakra-ui/react";
-
 /**
  * チャレンジ 1 の処理を実行します。
  */
@@ -39,11 +37,11 @@ export function UrlTestForm(_props: { update: string }): JSX.Element {
                 <div style={{ border: "1px solid black", padding: "20px" }}>
                     <label>
                         URL:&nbsp;
-                        <Input type="text" id="url" name="url" style={{ width: "900px", height: "33px", border: "1px solid black" }} />
+                        <input type="text" id="url" name="url" style={{ width: "900px", height: "33px", border: "1px solid black" }} />
                     </label>
                 </div>
                 <div style={{ border: "1px solid black", padding: "20px" }}>
-                    <Button onClick={onClick1}>URL をテスト</Button>
+                    <button onClick={onClick1}>URL をテスト</button>
                 </div>
             </form>
         </div>
