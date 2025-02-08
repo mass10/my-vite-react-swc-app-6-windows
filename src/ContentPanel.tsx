@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { UrlTestForm } from "./UrlTestForm";
 import { DefaultContent } from "./DefaultContent";
 import { FloatingLayoutPage } from "./FloatingLayoutPage";
+import { GridLayoutPage } from "./GridLayoutPage";
 
 function generateRandomToken(): string {
   return Math.random().toString(36).slice(-8)
@@ -46,6 +47,9 @@ export function ContentPanel(props: DefaultPageProps): JSX.Element {
   }
   else if (props.menuitem === "フローティングなレイアウト") {
     return <FloatingLayoutPage />
+  }
+  else if (props.menuitem === "grid layout example") {
+    return <GridLayoutPage />
   }
   else {
     return <DefaultContent />
