@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 
+/**
+ * デフォルトのコンテンツ
+ */
 export function DefaultContent(): JSX.Element {
   const [count, setCount] = useState(0)
 
