@@ -43,7 +43,7 @@ function App(): JSX.Element {
     <>
       {/* ヘッダー */}
       <HeaderPanel />
-      <div id="content-base-pane" style={{ display: "flex", height: "calc(100vh - 80px - 122px - 2px)" }}>
+      <div id="content-base-pane" style={{ display: "flex" }}>
         {/* サイドバー */}
         <SidePanel pageContext={pageContext} handleAnchor={(menuitem) => {
           console.info(`[App] menuitem: [${menuitem}]`)
