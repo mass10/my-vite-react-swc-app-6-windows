@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+* {
+  font-family: 'BIZ UDゴシック', 'Migu 1M', Consolas, monospace;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -41,4 +45,17 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.fixedWidth {
+  font-family: 'BIZ UDゴシック', 'Migu 1M', Consolas, monospace;
+}
+
+.information {
+  font-size: 1em;
+  text-align: left;
+  background-color: #e6f9fc;
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 1px solid #e9ecef;
 }
