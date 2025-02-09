@@ -16,18 +16,18 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: アプリケーションのビルドとデプロイ
     steps:
       - name: リポジトリーをチェックアウト
         uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
-
+      - name: ワークスペースをセットアップ
+        run: npm install
       - name: アプリケーションをビルド
-        run: npm install && npm run build --if-present
-
-      - name: アプリケーションをビルド
+        run: npm run build
+      - name: アプリケーションをデプロイ
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
