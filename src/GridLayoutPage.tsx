@@ -44,8 +44,8 @@ function Card1(props: {}): JSX.Element {
 
   const cardStyle = {
     textAlign: "left",
-    width: "180px",
-    height: "180px",
+    width: "300px",
+    height: "300px",
     border: "1px solid #ccc",
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   } as React.CSSProperties
@@ -85,7 +85,7 @@ export function GridLayoutPage(): JSX.Element {
         画面幅に合わせてカードの幅が変わることを確認します。
       </Information>
       <div style={{ textAlign: "left" }}>description: {description}</div>
-      <div id={canvasId} style={{ padding: "10px", gap: "10px", display: "grid", justifyContent: "center", backgroundColor: "#f0f0f0", gridTemplateColumns: "repeat(auto-fill, 180px)" }}>
+      <div id={canvasId} style={{ padding: "10px", gap: "10px", display: "grid", justifyContent: "center", backgroundColor: "#f0f0f0", gridTemplateColumns: "repeat(auto-fill, 300px)" }}>
         <Card1 />
         <Card1 />
         <Card1 />
