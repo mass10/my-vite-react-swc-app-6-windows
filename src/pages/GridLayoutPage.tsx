@@ -44,18 +44,27 @@ export function GridLayoutPage(): JSX.Element {
   const [canvasId, _] = React.useState(Utils.generateRandomToken());
   const [description, setDescription] = React.useState("");
 
-  const updateComponent = () => {
+  const updateRedrawCanvas = () => {
     // 表示文字列の更新
     const canvasWidth = Utils.getElementWidth(canvasId);
-    setDescription(`canvasId: [${canvasId}], width: [${canvasWidth}px]`);
+    setDescription(`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`);
   }
 
+  const onResizedHandler = () => {
+    console.debug(`[onResizedHandler] キャンバスのリサイズを検知しました。`);
+    updateRedrawCanvas();
+  }
+
+  // コンポーネントのマウント時に、キャンバスの幅を確認
   useEffect(() => {
-    const handle = window.setInterval(() => {
-      updateComponent();
-    }, 100);
+    updateRedrawCanvas();
+  }, [])
+
+  // キャンバスのリサイズをウォッチ
+  useEffect(() => {
+    window.addEventListener("resize", onResizedHandler);
     return () => {
-      window.clearInterval(handle);
+      window.removeEventListener("resize", onResizedHandler);
     }
   }, [])
 
@@ -69,7 +78,7 @@ export function GridLayoutPage(): JSX.Element {
       </Information>
 
       <Spacer />
-      <div style={{ textAlign: "left" }}>description: {description}</div>
+      <div style={{ textAlign: "left" }}>[DEBUG] {description}</div>
 
       <Spacer />
       <div id={canvasId} style={{ padding: "10px", gap: "10px", display: "grid", justifyContent: "center", backgroundColor: "#f0f0f0", gridTemplateColumns: "repeat(auto-fill, 300px)" }}>
