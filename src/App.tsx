@@ -51,7 +51,7 @@ function App(): JSX.Element {
           setCurrentTimestamp(Date.now())
         }} />
         {/* コンテンツ */}
-        <ContentPanel menuitem={menuitem} random={"" + currentTimestamp} />
+        <ContentPanel menuitem={menuitem} />
       </div>
       {/* フッター */}
       <FooterPanel />
