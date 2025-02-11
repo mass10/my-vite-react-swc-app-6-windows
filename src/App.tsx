@@ -3,7 +3,7 @@ import './App.css'
 import { ContentPanel } from './ContentPanel'
 import { HeaderPanel } from './HeaderPanel'
 import { SidePanel } from './SidePanel'
-import { FooterPanel } from './FooterPanel'
+import { FooterPanel } from './pages/FooterPanel'
 
 function getElementHeight(elementId: string): number {
   const e = document.getElementById(elementId);
