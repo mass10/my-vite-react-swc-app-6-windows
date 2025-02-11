@@ -1,68 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { generateRandomToken } from "./utils";
-
-// function generateRandomToken
-
-/**
- * 要素の幅を返します。
- *
- * @param id 要素の ID
- * @returns 要素の幅
- */
-function getElementWidth(id: string): number {
-  const element = document.getElementById(id);
-  if (element) {
-    return element.clientWidth;
-  }
-  console.warn(`[getElementWidth] 要素が見つかりませんでした id: [${id}]`);
-  return 0;
-}
+import { PageTitle, Spacer, Utils } from "./utils";
+import { Information } from "./Information";
 
 
 function Card1(props: { redrawNotification: number }): JSX.Element {
-  const [id, _] = useState(generateRandomToken());
+  const [id, _] = useState(Utils.generateRandomToken());
   const [cardWidth, setCardWidth] = React.useState("");
   const [description, setDescription] = React.useState("");
 
-  useEffect(() => {
-    // owner DIV の ID を知る
-    const parentId = document.getElementById(id)?.parentElement?.id;
-    if (!parentId) {
-      return;
-    }
-    const canvasWidth = getElementWidth(parentId);
-    if (1240 <= canvasWidth) {
-      setCardWidth("calc(20%)");
-    }
-    else if (1000 <= canvasWidth) {
-      setCardWidth("calc(18%)");
-    }
-    else if (900 <= canvasWidth) {
-      setCardWidth("calc(18%)");
-    }
-    else if (700 <= canvasWidth) {
-      setCardWidth("calc(17%)");
-    }
-    else if (600 <= canvasWidth) {
-      setCardWidth("calc(19%)");
-    }
-    else {
-      setCardWidth("calc(100%)");
-    }
-
+  const updateComponent = () => {
     // 要素の幅を確認
-    const width = getElementWidth(id);
-    setDescription(`id: ${id}, width: ${width}px`);
-  }, [props.redrawNotification])
+    const width = Utils.getElementWidth(id);
+    setDescription(`${id}, ${width}px`);
+  }
 
-  // 親要素の width から、自身の width を計算する
   useEffect(() => {
+    const timer = window.setInterval(() => {
+      updateComponent();
+    }, 200);
+    return () => {
+      window.clearInterval(timer);
+    }
   }, [])
 
-  // useEffect(() => {
-  //   console.info(`[Card1] 再計算 id: [${id}], canvas: [${canvasSize}], cardWidth: [${cardWidth}]`);
-  //   setDescription(`id: ${id}, width: [${cardWidth}]`);
-  // }, [cardWidth])
+  useEffect(() => {
+    updateComponent();
+  }, [props.redrawNotification])
 
   const cardStyle = {
     width: cardWidth,
@@ -77,7 +40,7 @@ function Card1(props: { redrawNotification: number }): JSX.Element {
     color: "#ff7777",
   } as React.CSSProperties
 
-  return <div id={id} style={cardStyle}>{description}</div>
+  return <div id={id} style={cardStyle} onResize={updateComponent}>{description}</div>
 }
 
 /**
@@ -85,7 +48,7 @@ function Card1(props: { redrawNotification: number }): JSX.Element {
  */
 export function FloatingLayoutPage(): JSX.Element {
   // キャンバスの ID を生成
-  const [canvasId, _] = React.useState(generateRandomToken());
+  const [canvasId, _] = useState(Utils.generateRandomToken());
   const [resizeNotification, setResizeNotification] = React.useState(new Date().getTime());
   const [description, setDescription] = React.useState("");
 
@@ -94,20 +57,9 @@ export function FloatingLayoutPage(): JSX.Element {
     setResizeNotification(new Date().getTime());
 
     // 表示文字列の更新
-    const canvasWidth = getElementWidth(canvasId);
-    setDescription(`canvasId: [${canvasId}], width: [${canvasWidth}px]`);
+    const canvasWidth = Utils.getElementWidth(canvasId);
+    setDescription(`${Utils.getCurrentTimestamp()}: ${canvasId}, ${canvasWidth}px`);
   }
-
-  useEffect(() => {
-    console.info(`[FloatingLayoutPage] タイマーをしかけました🌕`);
-    const handle = window.setInterval(() => {
-      updateRedraw();
-    }, 100);
-    return () => {
-      window.clearInterval(handle);
-      console.info(`[FloatingLayoutPage] タイマーを解除しました🌑`);
-    }
-  }, [])
 
   const onResizeElement = (_event: React.SyntheticEvent) => {
     console.info(`[FloatingLayoutPage] onResizeElement`);
@@ -116,9 +68,14 @@ export function FloatingLayoutPage(): JSX.Element {
 
   return (
     <div className="content" style={{ padding: "20px", width: "100%" }}>
-      <h1>フローティングなレイアウトの確認</h1>
+      <PageTitle>フローティングなレイアウトの確認</PageTitle>
+
+      <Spacer />
+      <Information>画面幅に合わせてカードが整列されることを確認します。</Information>
+
+      <Spacer />
       <div style={{ textAlign: "left" }}>description: {description}</div>
-      <div id={canvasId} style={{ display: "flex", flexWrap: "wrap", border: "1px solid #cccccc", alignItems: "center" }} onResize={onResizeElement}>
+      <div id={canvasId} style={{ display: "grid", border: "1px solid #cccccc", alignItems: "center", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }} onResize={onResizeElement}>
         <Card1 redrawNotification={resizeNotification} />
         <Card1 redrawNotification={resizeNotification} />
         <Card1 redrawNotification={resizeNotification} />
