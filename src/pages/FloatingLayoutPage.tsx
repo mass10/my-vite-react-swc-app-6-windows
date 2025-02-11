@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { PageTitle, Spacer, Utils } from "../utils";
-import { Information } from "../Information";
+import { PageTitle, Spacer, Utils } from "../lib/utils";
+import { Information } from "../atom/Information";
 
 
 function Card1(props: { redrawNotification: number }): JSX.Element {
