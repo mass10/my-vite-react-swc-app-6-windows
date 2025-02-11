@@ -60,7 +60,7 @@ export function GridLayoutPage(): JSX.Element {
   }, [])
 
   return (
-    <div className="content" style={{ padding: "20px", width: "100%", overflowY: "auto" }}>
+    <>
       <PageTitle>グリッドレイアウトの確認</PageTitle>
 
       <Spacer />
@@ -81,6 +81,6 @@ export function GridLayoutPage(): JSX.Element {
         <Card1 />
         <Card1 />
       </div>
-    </div>
+    </>
   )
 }
