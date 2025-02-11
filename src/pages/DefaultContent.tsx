@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { PageTitle, Spacer } from "../utils"
+import { PageTitle, Spacer } from "../lib/utils"
 
 /**
  * デフォルトのコンテンツ
@@ -13,7 +13,7 @@ export function DefaultContent(): JSX.Element {
 
   return (
     <>
-      <PageTitle>デフォルトのコンテンツ</PageTitle>
+      <PageTitle>Home</PageTitle>
       <Spacer />
 
       <p className="read-the-docs">
