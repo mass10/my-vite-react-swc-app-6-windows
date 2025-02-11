@@ -67,7 +67,7 @@ export function FloatingLayoutPage(): JSX.Element {
   }
 
   return (
-    <div className="content" style={{ padding: "20px", width: "100%" }}>
+    <>
       <PageTitle>フローティングなレイアウトの確認</PageTitle>
 
       <Spacer />
@@ -87,6 +87,6 @@ export function FloatingLayoutPage(): JSX.Element {
         <Card1 redrawNotification={resizeNotification} />
         <Card1 redrawNotification={resizeNotification} />
       </div>
-    </div>
+    </>
   )
 }
