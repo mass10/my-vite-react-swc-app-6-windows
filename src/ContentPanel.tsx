@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-import { UrlTestForm } from "./UrlTestForm";
-import { DefaultContent } from "./DefaultContent";
-import { FloatingLayoutPage } from "./FloatingLayoutPage";
-import { GridLayoutPage } from "./GridLayoutPage";
+import { UrlTestForm } from "./pages/UrlTestForm";
+import { DefaultContent } from "./pages/DefaultContent";
+import { FloatingLayoutPage } from "./pages/FloatingLayoutPage";
+import { GridLayoutPage } from "./pages/GridLayoutPage";
 import { Utils } from "./utils";
 
 type YoutubePageProps = {
