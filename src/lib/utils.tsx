@@ -32,6 +32,13 @@ export class Utils {
     public static getCurrentTimestamp(): string {
         return new Date().toISOString()
     }
+
+    public static getBuiltTimestamp(): string {
+        if (Constants.BUILD_TIMESTAMP === "{{build_timestamp}}") {
+            return "不明"
+        }
+        return Constants.BUILD_TIMESTAMP;
+    }
 }
 
 export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
