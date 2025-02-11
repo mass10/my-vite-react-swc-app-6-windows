@@ -25,6 +25,11 @@ jobs:
           lfs: false
       - name: ワークスペースをセットアップ
         run: npm install
+      - name: ビルドタイムスタンプの更新
+        run:
+          cargo run
+        working-directory: CLI
+        run: npm install
       - name: アプリケーションをビルド
         run: npm run build
       - name: アプリケーションをデプロイ
