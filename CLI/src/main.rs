@@ -46,12 +46,12 @@ fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
 
     cd("..");
 
-    let original_content = read_rext_file("src\\lib\\utils.tsx")?;
+    let original_content = read_rext_file("src/lib/utils.tsx")?;
 
     let original_content =
         original_content.replace("{{build_timestamp}}", &get_current_timestamp());
 
-    let file_path = "src\\lib\\utils.tsx";
+    let file_path = "src/lib/utils.tsx";
     std::fs::write(file_path, original_content)?;
 
     Ok(())
@@ -61,5 +61,6 @@ fn main() {
     let result = update_timestamp_file();
     if result.is_err() {
         eprintln!("Error: {}", result.err().unwrap());
+        std::process::exit(1);
     }
 }
