@@ -1,4 +1,5 @@
-import { PageTitle, Spacer } from "../utils";
+import { Information } from "../atom/Information";
+import { PageTitle, Spacer } from "../lib/utils";
 
 /**
  * チャレンジ 1 の処理を実行します。
@@ -39,8 +40,13 @@ export function UrlTestForm(_props: { update: string }): JSX.Element {
     return (
         <>
             <PageTitle>URL をテストするフォーム</PageTitle>
-            <Spacer />
 
+            <Spacer />
+            <Information>
+                GET リクエストの確認
+            </Information>
+
+            <Spacer />
             <form style={{ float: "left" }} onSubmit={(e) => { e.preventDefault(); }}>
                 <div style={{ border: "1px solid black", padding: "20px" }}>
                     <label>
