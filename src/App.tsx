@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { ContentPanel } from './ContentPanel'
-import { HeaderPanel } from './HeaderPanel'
-import { SidePanel } from './SidePanel'
-import { FooterPanel } from './pages/FooterPanel'
+import { ContentPanel } from './atom/ContentPanel'
+import { HeaderPanel } from './atom/HeaderPanel'
+import { SidePanel } from './atom/SidePanel'
+import { FooterPanel } from './atom/FooterPanel'
+import { Utils } from './lib/utils'
 
-function getElementHeight(elementId: string): number {
-  const e = document.getElementById(elementId);
-  return e?.clientHeight || 0
-}
 
 /**
  * アプリケーション ルート コンポーネント
@@ -31,9 +28,9 @@ function App(): JSX.Element {
   const [currentTimestamp, setCurrentTimestamp] = useState<number>(Date.now())
 
   useEffect(() => {
-    const headerHeight = getElementHeight("header-pane")
-    const contentAreaHeight = getElementHeight("content-base-pane");
-    const footerHeight = getElementHeight("footer-pane")
+    const headerHeight = Utils.getElementHeight("header-pane")
+    const contentAreaHeight = Utils.getElementHeight("content-base-pane");
+    const footerHeight = Utils.getElementHeight("footer-pane")
     const pageHeight = window.innerHeight;
 
     console.info(`[App] header height: [${headerHeight}], content-pane 高さ: [${contentAreaHeight}], footer height: [${footerHeight}], page height: [${pageHeight}]`)
