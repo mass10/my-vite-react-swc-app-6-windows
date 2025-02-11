@@ -1,3 +1,8 @@
+# my-vite-react-swc-app-6-windows
+
+* React.js を触るときの PlayGround。
+* Windows + コマンドプロンプト でビルドできること。
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -49,17 +54,12 @@ export default tseslint.config({
 })
 ```
 
-
-
-
 # Others
+
+* chakura-ui を試すときに入れたもの
 
 ```sh
 npm install @chakra-ui/react@^3.3.1
 npm install @chakra-ui/system
 npm install @chakra-ui/utils
 ```
-
-
-
-<!-- 編集 -->
