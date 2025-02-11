@@ -3,7 +3,7 @@ import { PageTitle, Spacer, Utils } from "../lib/utils";
 import { Information } from "../atom/Information";
 
 
-function Card1(props: { redrawNotification: string }): JSX.Element {
+function Card1(props: {}): JSX.Element {
   const [id, _] = useState(Utils.generateRandomToken());
   const [description, setDescription] = React.useState("");
 
@@ -12,10 +12,6 @@ function Card1(props: { redrawNotification: string }): JSX.Element {
     const width = Utils.getElementWidth(id);
     setDescription(`${id}, ${width}px`);
   }
-
-  useEffect(() => {
-    updateComponent();
-  }, [props.redrawNotification])
 
   const cardStyle = {
     minWidth: "",
@@ -51,15 +47,24 @@ export function FloatingLayoutPage(): JSX.Element {
   const updateRedrawCanvas = () => {
     // 表示文字列の更新
     const canvasWidth = Utils.getElementWidth(canvasId);
-    setDescription(`${canvasId}: ${canvasWidth}px`);
+    setDescription(`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`);
   }
 
-  // タイマーでキャンバスのリサイズをウォッチ
-  // ※resize などをキャッチするための確実なイベントを確認中
+  const onResizedHandler = () => {
+    console.debug(`[onResizedHandler] キャンバスのリサイズを検知しました。${Utils.getCurrentTimestamp()}`);
+    updateRedrawCanvas();
+  }
+
+  // コンポーネントのマウント時に、キャンバスの幅を確認
   useEffect(() => {
-    const timer = window.setInterval(updateRedrawCanvas, 100);
+    updateRedrawCanvas();
+  }, [])
+
+  // キャンバスのリサイズをウォッチ
+  useEffect(() => {
+    window.addEventListener("resize", onResizedHandler);
     return () => {
-      window.clearInterval(timer);
+      window.removeEventListener("resize", onResizedHandler);
     }
   }, [])
 
@@ -71,20 +76,20 @@ export function FloatingLayoutPage(): JSX.Element {
       <Information>画面幅に合わせてカードが整列されることを確認します。</Information>
 
       <Spacer />
-      <div style={{ textAlign: "left" }}>description: {description}</div>
+      <div style={{ textAlign: "left" }}>[DEBUG] {description}</div>
 
       <Spacer />
       <div id={canvasId} style={{ display: "grid", border: "1px solid #cccccc", alignItems: "center", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
-        <Card1 redrawNotification={updateNotification} />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
+        <Card1 />
       </div>
     </>
   )
