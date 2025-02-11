@@ -3,10 +3,7 @@ import { UrlTestForm } from "./UrlTestForm";
 import { DefaultContent } from "./DefaultContent";
 import { FloatingLayoutPage } from "./FloatingLayoutPage";
 import { GridLayoutPage } from "./GridLayoutPage";
-
-function generateRandomToken(): string {
-  return Math.random().toString(36).slice(-8)
-}
+import { Utils } from "./utils";
 
 type YoutubePageProps = {
   url: string
@@ -34,16 +31,12 @@ type DefaultPageProps = {
  * ページを構成する基本コンポーネント
  */
 export function ContentPanel(props: DefaultPageProps): JSX.Element {
-  useEffect(() => {
-    console.info(`[DefaultPage] menuitem: [${props.menuitem}]`)
-  }, [props.menuitem])
-
   // コンテンツのルーティング
   if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
     return <YoutubePage url={props.menuitem} />
   }
   else if (0 <= props.menuitem.indexOf("チャレンジ1")) {
-    return <UrlTestForm update={generateRandomToken()} />
+    return <UrlTestForm update={Utils.generateRandomToken()} />
   }
   else if (props.menuitem === "フローティングなレイアウト") {
     return <FloatingLayoutPage />
