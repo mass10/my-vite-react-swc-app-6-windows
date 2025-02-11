@@ -7,23 +7,9 @@ function Card1(props: {}): JSX.Element {
   const [description, setDescription] = React.useState("");
 
   useEffect(() => {
-    console.info(`[Card1] $$$ MOUNT $$$ id: [${id}] がマウントされました`);
-    return () => {
-      console.info(`[Card1] --- UMOUNT --- id: [${id}] がアンマウントされました`);
-    }
-  }, [])
-
-  const [elementWidthTmp, setElementWidthTmp] = React.useState(0);
-
-  window.setInterval(() => {
     const width = Utils.getElementWidth(id);
-    setElementWidthTmp(width);
-  }, 100)
-
-  useEffect(() => {
-    const currentTimestamp = Utils.getCurrentTimestamp();
-    setDescription(`${currentTimestamp}: ${id}, ${elementWidthTmp}px`);
-  }, [elementWidthTmp])
+    setDescription(`id: [${id}], width: [${width}px]`);
+  }, [])
 
   const cardStyle = {
     textAlign: "left",
