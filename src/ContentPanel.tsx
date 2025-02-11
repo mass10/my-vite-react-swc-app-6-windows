@@ -15,16 +15,12 @@ function YoutubePage(props: YoutubePageProps): JSX.Element {
   }, [props.url])
 
   return (
-    <div className="content" style={{ padding: "20px", width: "100%" }}>
-      {/* <iframe src={props.url} width="100%" height="500px" /> */}
-      <iframe width="1008" height="567" src={props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-    </div>
+    <iframe width="1008" height="567" src={props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
   )
 }
 
 type DefaultPageProps = {
   menuitem: string
-  random: string
 }
 
 /**
@@ -33,18 +29,38 @@ type DefaultPageProps = {
 export function ContentPanel(props: DefaultPageProps): JSX.Element {
   // コンテンツのルーティング
   if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
-    return <YoutubePage url={props.menuitem} />
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%" }}>
+        <YoutubePage url={props.menuitem} />
+      </div>
+    )
   }
   else if (0 <= props.menuitem.indexOf("チャレンジ1")) {
-    return <UrlTestForm update={Utils.generateRandomToken()} />
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%" }}>
+        <UrlTestForm update={Utils.generateRandomToken()} />
+      </div>
+    )
   }
   else if (props.menuitem === "フローティングなレイアウト") {
-    return <FloatingLayoutPage />
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%" }}>
+        <FloatingLayoutPage />
+      </div>
+    )
   }
   else if (props.menuitem === "grid layout example") {
-    return <GridLayoutPage />
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%" }}>
+        <GridLayoutPage />
+      </div>
+    )
   }
   else {
-    return <DefaultContent />
+    return (
+      <div className="content" style={{ padding: "20px", width: "100%" }}>
+        <DefaultContent />
+      </div>
+    )
   }
 }
