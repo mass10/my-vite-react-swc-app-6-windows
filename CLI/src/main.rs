@@ -83,6 +83,7 @@ fn read_rext_file(path: &str) -> Result<String, Box<dyn std::error::Error>> {
 fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
     let _recovery = DirectoryRecovery::new();
 
+    // ワークスペースのルートに移動
     cd("..");
 
     let original_content = read_rext_file("src/lib/utils.tsx")?;
