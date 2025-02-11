@@ -133,4 +133,4 @@ dist
 /package-lock.json
 
 /CLI/target/
-/CLI/cargo.lock
+/CLI/Cargo.lock
