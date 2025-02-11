@@ -29,9 +29,31 @@ export class Utils {
         return e.clientHeight || 0
     }
 
-    public static getCurrentTimestamp(): string {
-        return new Date().toISOString()
+    /**
+     * 秒までしか表現できていない
+     */
+    public static getCurrentTimestampBak(): string {
+        return new Date().toLocaleString('ja-JP', {
+            timeZone: 'Asia/Tokyo',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }).replace(/\//g, '-');
     }
+
+    /**
+     * タイムスタンプを返します。(JST +09:00)
+     */
+    public static getCurrentTimestamp(): string {
+        const now = new Date();
+        const duration = now.getTimezoneOffset();
+        now.setTime(now.getTime() - duration * 60 * 1000);
+        return now.toISOString().replace('T', ' ').replace('Z', '');
+    }
+
 
     public static getBuiltTimestamp(): string {
         if (0 <= Constants.BUILD_TIMESTAMP.indexOf("{{build_timestamp")) {
