@@ -13,6 +13,10 @@ function Card1(props: {}): JSX.Element {
     setDescription(`${id}, ${width}px`);
   }
 
+  useEffect(() => {
+    updateComponent();
+  }, []);
+
   const cardStyle = {
     minWidth: "",
     minHeight: "50px",
