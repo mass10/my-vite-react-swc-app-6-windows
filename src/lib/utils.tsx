@@ -34,7 +34,9 @@ export class Utils {
     }
 
     public static getBuiltTimestamp(): string {
-        if (Constants.BUILD_TIMESTAMP === "{{build_timestamp}}") {
+        if (0 <= Constants.BUILD_TIMESTAMP.indexOf("{{build_timestamp")) {
+            // ・localhost で実行中
+            // ・何らかの理由で置換に失敗している
             return "不明"
         }
         return Constants.BUILD_TIMESTAMP;
