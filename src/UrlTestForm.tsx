@@ -1,3 +1,5 @@
+import { PageTitle, Spacer } from "./utils";
+
 /**
  * チャレンジ 1 の処理を実行します。
  */
@@ -32,18 +34,23 @@ export function UrlTestForm(_props: { update: string }): JSX.Element {
     }
 
     return (
-        <div style={{ padding: "20px" }}>
-            <form style={{ float: "left" }} onSubmit={(e) => { e.preventDefault(); onClick1(); }}>
-                <div style={{ border: "1px solid black", padding: "20px" }}>
-                    <label>
-                        URL:&nbsp;
-                        <input type="text" id="url" name="url" style={{ width: "900px", height: "33px", border: "1px solid black" }} />
-                    </label>
-                </div>
-                <div style={{ border: "1px solid black", padding: "20px" }}>
-                    <button onClick={onClick1}>URL をテスト</button>
-                </div>
-            </form>
-        </div>
+        <>
+            <PageTitle>デフォルトのコンテンツ</PageTitle>
+            <Spacer />
+
+            <div style={{ padding: "20px" }}>
+                <form style={{ float: "left" }} onSubmit={(e) => { e.preventDefault(); onClick1(); }}>
+                    <div style={{ border: "1px solid black", padding: "20px" }}>
+                        <label>
+                            URL:&nbsp;
+                            <input type="text" id="url" name="url" style={{ width: "900px", height: "33px", border: "1px solid black" }} />
+                        </label>
+                    </div>
+                    <div style={{ border: "1px solid black", padding: "20px" }}>
+                        <button onClick={onClick1}>URL をテスト</button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 }
