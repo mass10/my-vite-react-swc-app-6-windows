@@ -70,6 +70,8 @@ export function GridLayoutPage(): JSX.Element {
 
       <Spacer />
       <div style={{ textAlign: "left" }}>description: {description}</div>
+
+      <Spacer />
       <div id={canvasId} style={{ padding: "10px", gap: "10px", display: "grid", justifyContent: "center", backgroundColor: "#f0f0f0", gridTemplateColumns: "repeat(auto-fill, 300px)" }}>
         <Card1 />
         <Card1 />
