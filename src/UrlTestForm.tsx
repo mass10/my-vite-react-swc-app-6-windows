@@ -4,7 +4,10 @@ import { PageTitle, Spacer } from "./utils";
  * チャレンジ 1 の処理を実行します。
  */
 async function challenge1(url: string): Promise<void> {
-    if (!url) return;
+    if (!url) {
+        console.error(`[anonymous] URL が指定されていません。`);
+        return;
+    }
     try {
         console.log(`[anonymous] URL の確認: [${url}]`);
         const response = await fetch(url, {
@@ -35,11 +38,11 @@ export function UrlTestForm(_props: { update: string }): JSX.Element {
 
     return (
         <>
-            <PageTitle>デフォルトのコンテンツ</PageTitle>
+            <PageTitle>URL をテストするフォーム</PageTitle>
             <Spacer />
 
             <div style={{ padding: "20px" }}>
-                <form style={{ float: "left" }} onSubmit={(e) => { e.preventDefault(); onClick1(); }}>
+                <form style={{ float: "left" }} onSubmit={(e) => { e.preventDefault(); }}>
                     <div style={{ border: "1px solid black", padding: "20px" }}>
                         <label>
                             URL:&nbsp;
