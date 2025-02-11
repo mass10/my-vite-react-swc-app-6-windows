@@ -1,27 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { generateRandomToken } from "./utils";
+import { PageTitle, Spacer, Utils } from "./utils";
 import { Information } from "./Information";
 
-// function generateRandomToken
-
-/**
- * 要素の幅を返します。
- *
- * @param id 要素の ID
- * @returns 要素の幅
- */
-function getElementWidth(id: string): number {
-  const element = document.getElementById(id);
-  if (element) {
-    return element.clientWidth;
-  }
-  console.warn(`[getElementWidth] 要素が見つかりませんでした id: [${id}]`);
-  return 0;
-}
-
-
 function Card1(props: {}): JSX.Element {
-  const [id,] = useState(generateRandomToken());
+  const [id,] = useState(Utils.generateRandomToken());
   const [description, setDescription] = React.useState("");
 
   useEffect(() => {
@@ -34,12 +16,13 @@ function Card1(props: {}): JSX.Element {
   const [elementWidthTmp, setElementWidthTmp] = React.useState(0);
 
   window.setInterval(() => {
-    const width = getElementWidth(id);
+    const width = Utils.getElementWidth(id);
     setElementWidthTmp(width);
   }, 100)
 
   useEffect(() => {
-    setDescription(`${id}: ${elementWidthTmp}px`);
+    const currentTimestamp = Utils.getCurrentTimestamp();
+    setDescription(`${currentTimestamp}: ${id}, ${elementWidthTmp}px`);
   }, [elementWidthTmp])
 
   const cardStyle = {
@@ -58,32 +41,34 @@ function Card1(props: {}): JSX.Element {
  */
 export function GridLayoutPage(): JSX.Element {
   // キャンバスの ID を生成
-  const [canvasId, _] = React.useState(generateRandomToken());
+  const [canvasId, _] = React.useState(Utils.generateRandomToken());
   const [description, setDescription] = React.useState("");
 
-  const updateRedraw = () => {
+  const updateComponent = () => {
     // 表示文字列の更新
-    const canvasWidth = getElementWidth(canvasId);
+    const canvasWidth = Utils.getElementWidth(canvasId);
     setDescription(`canvasId: [${canvasId}], width: [${canvasWidth}px]`);
   }
 
   useEffect(() => {
-    console.info(`[GridLayoutPage] タイマーをしかけました🌕`);
     const handle = window.setInterval(() => {
-      updateRedraw();
+      updateComponent();
     }, 100);
     return () => {
       window.clearInterval(handle);
-      console.info(`[GridLayoutPage] タイマーを解除しました🌑`);
     }
   }, [])
 
   return (
     <div className="content" style={{ padding: "20px", width: "100%", overflowY: "auto" }}>
-      <div style={{ fontSize: "35px", textAlign: "left", backgroundColor: "#e0e0e0", padding: "12px" }}>グリッドレイアウトの確認</div>
+      <PageTitle>グリッドレイアウトの確認</PageTitle>
+
+      <Spacer />
       <Information>
         画面幅に合わせてカードの幅が変わることを確認します。
       </Information>
+
+      <Spacer />
       <div style={{ textAlign: "left" }}>description: {description}</div>
       <div id={canvasId} style={{ padding: "10px", gap: "10px", display: "grid", justifyContent: "center", backgroundColor: "#f0f0f0", gridTemplateColumns: "repeat(auto-fill, 300px)" }}>
         <Card1 />
