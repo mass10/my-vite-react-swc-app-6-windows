@@ -24,6 +24,19 @@ impl DirectoryRecovery {
     }
 }
 
+/// 指定されたタイムゾーンで現在のタイムスタンプを返します。
+pub fn get_current_timestamnp_by(hours: i64) -> String {
+    let now = chrono::Utc::now();
+    let local_time = now + chrono::Duration::hours(hours);
+    // +#03 -> 符号付き、最低3桁を確保する、0埋め、整数
+    let text = format!(
+        "{}{:+#03}:00",
+        local_time.format("%Y-%m-%dT%H:%M:%S%.3f"),
+        hours
+    );
+    return text;
+}
+
 pub fn get_current_timestamp() -> String {
     let now = chrono::Utc::now();
     // ミリ秒までフォーマット
@@ -49,7 +62,7 @@ fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
     let original_content = read_rext_file("src/lib/utils.tsx")?;
 
     let original_content =
-        original_content.replace("{{build_timestamp}}", &get_current_timestamp());
+        original_content.replace("{{build_timestamp}}", &get_current_timestamnp_by(9));
 
     let file_path = "src/lib/utils.tsx";
     std::fs::write(file_path, original_content)?;
