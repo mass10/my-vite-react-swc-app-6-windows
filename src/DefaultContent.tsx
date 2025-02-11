@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { PageTitle, Spacer } from "./utils"
 
 /**
  * デフォルトのコンテンツ
@@ -11,8 +12,10 @@ export function DefaultContent(): JSX.Element {
   }, [count])
 
   return (
-    <div className="content" style={{ padding: "20px", width: "100%" }}>
-      <h1>Vite + React のコンテンツ</h1>
+    <>
+      <PageTitle>デフォルトのコンテンツ</PageTitle>
+      <Spacer />
+
       <p className="read-the-docs">
         &nbsp;
       </p>
@@ -51,6 +54,6 @@ export function DefaultContent(): JSX.Element {
       <p className="read-the-docs">
         &nbsp;
       </p>
-    </div>
+    </>
   )
 }
