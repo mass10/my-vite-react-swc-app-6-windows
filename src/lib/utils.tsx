@@ -1,3 +1,7 @@
+export class Constants {
+    public static readonly BUILD_TIMESTAMP = "{{build_timestamp}}";
+}
+
 export type PageContext = {
 
 }
