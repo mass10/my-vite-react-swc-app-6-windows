@@ -3,7 +3,7 @@ import { PageTitle, Spacer, Utils } from "../lib/utils";
 import { Information } from "../atom/Information";
 
 
-function Card1(props: {}): JSX.Element {
+function Card1(props: { refresh: string }): JSX.Element {
   const [id, _] = useState(Utils.generateRandomToken());
   const [description, setDescription] = React.useState("");
 
@@ -17,15 +17,17 @@ function Card1(props: {}): JSX.Element {
     updateComponent();
   }, []);
 
+  useEffect(() => {
+    updateComponent();
+  }, [props.refresh]);
+
   const cardStyle = {
+    textAlign: "left",
     minWidth: "",
     minHeight: "50px",
-    margin: "10px",
-    padding: "20px",
+    padding: "5px",
     border: "1px solid #cccccc",
-    borderRadius: "8px",
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    backgroundColor: "#ffffff",
     color: "#ff7777",
   } as React.CSSProperties
 
@@ -43,19 +45,16 @@ export function FloatingLayoutPage(): JSX.Element {
   // キャンバスの表示用
   const [description, setDescription] = React.useState("");
 
-  useEffect(() => {
-    // すべてのカードに再描画通知を送信
-    setUpdateNotification(Utils.generateRandomToken());
-  }, [description])
-
   const updateRedrawCanvas = () => {
+    console.debug(`[FloatingLayoutPage] 再描画`);
     // 表示文字列の更新
     const canvasWidth = Utils.getElementWidth(canvasId);
     setDescription(`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`);
+    // すべてのカードに再描画通知を送信
+    setUpdateNotification(Utils.generateRandomToken());
   }
 
   const onResizedHandler = () => {
-    console.debug(`[onResizedHandler] キャンバスのリサイズを検知しました。${Utils.getCurrentTimestamp()}`);
     updateRedrawCanvas();
   }
 
@@ -83,17 +82,17 @@ export function FloatingLayoutPage(): JSX.Element {
       <div style={{ textAlign: "left" }}>[DEBUG] {description}</div>
 
       <Spacer />
-      <div id={canvasId} style={{ display: "grid", border: "1px solid #cccccc", alignItems: "center", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
+      <div id={canvasId} style={{ display: "grid", border: "0px solid #885555", alignItems: "center", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
+        <Card1 refresh={updateNotification} />
       </div>
     </>
   )
