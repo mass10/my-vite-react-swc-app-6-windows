@@ -6,6 +6,14 @@ import { SidePanel } from './atom/SidePanel'
 import { FooterPanel } from './atom/FooterPanel'
 import { Utils } from './lib/utils'
 
+function getInitialMenuitem(): string {
+  const pathname = window.location.pathname
+  console.info(`[App] pathname: [${pathname}]`)
+  if (pathname === "/") {
+    return ""
+  }
+  return pathname
+}
 
 /**
  * アプリケーション ルート コンポーネント
@@ -13,6 +21,7 @@ import { Utils } from './lib/utils'
 function App(): JSX.Element {
   useEffect(() => {
     console.info(`[App] $$$ LOAD $$$`)
+    console.info(`[App] pathname: [${window.location.pathname}]`)
     return () => {
       console.info(`[App] --- UNLOAD ---`)
     }
@@ -24,8 +33,7 @@ function App(): JSX.Element {
     keywords: 'home, page',
   }
 
-  const [menuitem, setMenuitem] = useState<string>('')
-  const [currentTimestamp, setCurrentTimestamp] = useState<number>(Date.now())
+  const [menuitem, setMenuitem] = useState<string>(getInitialMenuitem())
 
   useEffect(() => {
     const headerHeight = Utils.getElementHeight("header-pane")
@@ -42,10 +50,9 @@ function App(): JSX.Element {
       <HeaderPanel />
       <div id="content-base-pane" style={{ display: "flex" }}>
         {/* サイドバー */}
-        <SidePanel pageContext={pageContext} handleAnchor={(menuitem) => {
-          console.info(`[App] menuitem: [${menuitem}]`)
-          setMenuitem(menuitem)
-          setCurrentTimestamp(Date.now())
+        <SidePanel pageContext={pageContext} handleAnchor={(item) => {
+          console.info(`[App] menuitem: [${item}]`)
+          setMenuitem(item)
         }} />
         {/* コンテンツ */}
         <ContentPanel menuitem={menuitem} />
