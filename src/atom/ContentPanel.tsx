@@ -5,6 +5,7 @@ import { GridLayoutPage } from "../pages/GridLayoutPage";
 import { Utils } from "../lib/utils";
 import { YoutubePage } from "../pages/YoutubePage";
 import { LargeCanvasPage1 } from "../pages/LargeCanvas1";
+import { TransformOrZoomPage1 } from "../pages/ScaleOrZoomPage1";
 
 
 type DefaultPageProps = {
@@ -31,6 +32,9 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
   else if (props.menuitem === "/large-canvas-1") {
     return <LargeCanvasPage1 />
   }
+  else if (props.menuitem === "/scale-or-zoom") {
+    return <TransformOrZoomPage1 />
+  }
   else if (window.location.pathname === "/embedded1") {
     return <YoutubePage url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"} />
   }
@@ -42,6 +46,9 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
   }
   else if (window.location.pathname === "/large-canvas-1") {
     return <LargeCanvasPage1 />
+  }
+  else if (window.location.pathname === "/scale-or-zoom") {
+    return <TransformOrZoomPage1 />
   }
   else if (props.menuitem) {
     console.warn(`Unknown menu item: ${props.menuitem}`)
