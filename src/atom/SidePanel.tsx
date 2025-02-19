@@ -46,6 +46,7 @@ export function SidePanel(props: Props): JSX.Element {
                 <SideMenuLinkItem href="/floating-layout-example">フローティングなレイアウト</SideMenuLinkItem>
                 <SideMenuLinkItem href="/grid-layout-example">グリッドなレイアウト</SideMenuLinkItem>
                 <SideMenuLinkItem href="/large-canvas-1">大きなキャンバス</SideMenuLinkItem>
+                <SideMenuLinkItem href="/scale-or-zoom">transform or zoom</SideMenuLinkItem>
             </LinkItems>
         </div>
     )
