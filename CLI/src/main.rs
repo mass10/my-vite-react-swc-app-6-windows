@@ -1,16 +1,17 @@
 ///
 /// ディレクトリーのパスを取得します。
 ///
-pub fn pwd() -> String {
-	let current_dir = std::env::current_dir().unwrap();
-	current_dir.to_str().unwrap().to_string()
+pub fn pwd() -> Result<String, Box<dyn std::error::Error>> {
+	let current_dir = std::env::current_dir()?;
+	return Ok(current_dir.to_str().unwrap().to_string());
 }
 
 ///
 /// ディレクトリーを移動します。
 ///
-pub fn cd(path: &str) {
-	std::env::set_current_dir(path).unwrap();
+pub fn cd(path: &str) -> Result<(), Box<dyn std::error::Error>> {
+	std::env::set_current_dir(path)?;
+	return Ok(());
 }
 
 ///
@@ -24,16 +25,17 @@ impl DirectoryRecovery {
 	///
 	/// 新しいインスタンスを返します。
 	///
-	pub fn new() -> DirectoryRecovery {
-		DirectoryRecovery { original_location: pwd() }
+	pub fn new() -> Result<DirectoryRecovery, Box<dyn std::error::Error>> {
+		return Ok(DirectoryRecovery { original_location: pwd()? });
 	}
 
 	///
 	/// ディレクトリーを復帰します。
 	///
-	pub fn recover(&self) {
+	pub fn recover(&self) -> Result<(), Box<dyn std::error::Error>> {
 		println!("Recovering directory: {}", self.original_location);
-		cd(&self.original_location);
+		cd(&self.original_location)?;
+		return Ok(());
 	}
 }
 
@@ -59,7 +61,7 @@ pub fn get_current_timestamp() -> String {
 
 impl Drop for DirectoryRecovery {
 	fn drop(&mut self) {
-		self.recover();
+		let _ = self.recover();
 	}
 }
 
@@ -78,7 +80,7 @@ fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
 	let _recovery = DirectoryRecovery::new();
 
 	// ワークスペースのルートに移動
-	cd("..");
+	cd("..")?;
 
 	let original_content = read_rext_file("src/lib/utils.tsx")?;
 
