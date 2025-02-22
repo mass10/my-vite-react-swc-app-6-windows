@@ -4,8 +4,6 @@ import { PageContext } from "../lib/utils"
  * サイドメニューのアイテム
  */
 function SideMenuLinkItem(props: { href?: string, onClick?: (info: string) => void, children?: React.ReactNode }): JSX.Element {
-    const href = props.href || "javascript: void(0)"
-
     const styleOfAnchor = {
         color: "#222222",
         textDecoration: "none"
@@ -13,7 +11,7 @@ function SideMenuLinkItem(props: { href?: string, onClick?: (info: string) => vo
 
     return (
         <li style={{ padding: "5px" }}>
-            <a className="fixedWidth" href={href} style={styleOfAnchor}>{props.children}</a>
+            <a className="fixedWidth" href={props.href} style={styleOfAnchor}>{props.children}</a>
         </li>
     )
 }
@@ -46,7 +44,10 @@ export function SidePanel(props: Props): JSX.Element {
                 <SideMenuLinkItem href="/floating-layout-example">フローティングなレイアウト</SideMenuLinkItem>
                 <SideMenuLinkItem href="/grid-layout-example">グリッドなレイアウト</SideMenuLinkItem>
                 <SideMenuLinkItem href="/large-canvas-1">大きなキャンバス</SideMenuLinkItem>
-                <SideMenuLinkItem href="/scale-or-zoom">transform or zoom</SideMenuLinkItem>
+                <SideMenuLinkItem href="/scale-or-zoom">transform or zoom (1)</SideMenuLinkItem>
+                <SideMenuLinkItem href="/zoom2">transform or zoom (2)</SideMenuLinkItem>
+                <SideMenuLinkItem href="/iframe1">iframe (1)</SideMenuLinkItem>
+                <SideMenuLinkItem href="/element-rect">element-rect (1)</SideMenuLinkItem>
             </LinkItems>
         </div>
     )
