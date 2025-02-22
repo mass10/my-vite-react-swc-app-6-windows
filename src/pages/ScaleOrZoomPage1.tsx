@@ -77,10 +77,10 @@ export function TransformOrZoomPage1(props: {}): JSX.Element {
                 />
             </div>
             <div style={{ display: "flex", flexDirection: "row", gap: 10 }}>
-                <div style={{ padding: 5, width: 500, height: 500, border: "1px solid black" }}>
+                <div style={{ padding: 5, width: 500, height: 500, border: "0px solid black", backgroundColor: "lightgray" }}>
                     <TransformCanvas scale={scale} />
                 </div>
-                <div style={{ padding: 5, width: 500, height: 500, border: "1px solid black" }}>
+                <div style={{ padding: 5, width: 500, height: 500, border: "0px solid black", backgroundColor: "lightgray" }}>
                     <ZoomCanvas scale={scale} />
                 </div>
             </div>
