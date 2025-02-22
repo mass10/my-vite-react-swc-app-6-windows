@@ -6,6 +6,8 @@ import { SidePanel } from './atom/SidePanel'
 import { FooterPanel } from './atom/FooterPanel'
 import { Utils } from './lib/utils'
 
+const globalSessionId = Utils.generateRandomToken();
+
 function getInitialMenuitem(): string {
   const pathname = window.location.pathname
   console.info(`[App] pathname: [${pathname}]`)
@@ -42,6 +44,17 @@ function App(): JSX.Element {
     const pageHeight = window.innerHeight;
 
     console.info(`[App] header height: [${headerHeight}], content-pane 高さ: [${contentAreaHeight}], footer height: [${footerHeight}], page height: [${pageHeight}]`)
+  }, []);
+
+  const onMouseMove = (event: MouseEvent) => {
+    console.info(`[App] (${globalSessionId}) mousemove: [${event.pageX}, ${event.pageY}]`)
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    }
   }, []);
 
   return (
