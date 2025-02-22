@@ -8,10 +8,15 @@ import { MicrosoftLogoSvg } from "../atom/MicrosoftLogoSvg"
  */
 function TransformCanvas(props: { scale: number | null }): JSX.Element {
     const { scale } = props
-    const canvasStyle = {
+
+    const baseStyle = {
         width: 500,
         height: 500,
         border: "1px solid black",
+    }
+
+    const canvasStyle = {
+        ...baseStyle,
         transform: `scale(${scale})`,
         transformOrigin: "0 0",
     }
