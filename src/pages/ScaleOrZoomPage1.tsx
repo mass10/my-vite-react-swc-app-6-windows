@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
 import { PageTitle, Spacer } from "../lib/utils"
 import { Information } from "../atom/Information"
 import { MicrosoftLogoSvg } from "../atom/MicrosoftLogoSvg"
@@ -7,22 +7,16 @@ import { MicrosoftLogoSvg } from "../atom/MicrosoftLogoSvg"
  * transform によって、拡大・縮小表示するキャンバス
  */
 function TransformCanvas(props: { scale: number | null }): JSX.Element {
-    const { scale } = props
-
-    const baseStyle = {
+    const style: CSSProperties = {
         width: 500,
         height: 500,
-        border: "1px solid black",
-    }
-
-    const canvasStyle = {
-        ...baseStyle,
-        transform: `scale(${scale})`,
+        border: "0px solid black",
+        transform: `scale(${props.scale})`,
         transformOrigin: "0 0",
     }
 
     return (
-        <div style={canvasStyle}>
+        <div style={style}>
             <MicrosoftLogoSvg />
         </div>
     )
@@ -32,10 +26,15 @@ function TransformCanvas(props: { scale: number | null }): JSX.Element {
  * zoom によって、拡大・縮小表示するキャンバス
  */
 function ZoomCanvas(props: { scale: number }): JSX.Element {
-    const { scale } = props
+    const style: CSSProperties = {
+        width: 500,
+        height: 500,
+        border: "0px solid black",
+        zoom: props.scale
+    };
 
     return (
-        <div style={{ width: 500, height: 500, border: "1px solid black", zoom: scale }}>
+        <div style={style}>
             <MicrosoftLogoSvg />
         </div>
     )
