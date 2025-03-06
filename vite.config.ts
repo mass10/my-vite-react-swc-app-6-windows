@@ -17,6 +17,7 @@ export default defineConfig({
         "large-canvas-1": resolve(__dirname, "large-canvas-1/index.html"),
         "scale-or-zoom": resolve(__dirname, "scale-or-zoom/index.html"),
         "zoom2": resolve(__dirname, "zoom2/index.html"),
+        "yoko-scroll-table": resolve(__dirname, "yoko-scroll-table/index.html"),
       }
     }
   }
