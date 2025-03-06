@@ -48,6 +48,7 @@ export function SidePanel(props: Props): JSX.Element {
                 <SideMenuLinkItem href="/zoom2">transform or zoom (2)</SideMenuLinkItem>
                 <SideMenuLinkItem href="/iframe1">iframe (1)</SideMenuLinkItem>
                 <SideMenuLinkItem href="/element-rect">element-rect (1)</SideMenuLinkItem>
+                <SideMenuLinkItem href="/yoko-scroll-table">yoko scroll table (1)</SideMenuLinkItem>
             </LinkItems>
         </div>
     )
