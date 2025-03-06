@@ -9,6 +9,7 @@ import { TransformOrZoomPage1 } from "../pages/ScaleOrZoomPage1";
 import { Zoom2 } from "../pages/Zoom2";
 import { Iframe1 } from "../pages/Iframe1";
 import { ElementRectPage } from "../pages/ElementRectPage";
+import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 
 
 type DefaultPageProps = {
@@ -61,6 +62,9 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
   }
   else if (window.location.pathname === "/element-rect") {
     return <ElementRectPage />
+  }
+  else if (window.location.pathname === "/yoko-scroll-table") {
+    return <YokoScrollTablePage />
   }
   else if (props.menuitem) {
     console.warn(`Unknown menu item: ${props.menuitem}`)
