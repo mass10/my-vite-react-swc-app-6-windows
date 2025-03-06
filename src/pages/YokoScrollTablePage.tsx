@@ -241,7 +241,7 @@ export function YokoScrollTablePage(props: {}): JSX.Element {
             </div>
 
             <Spacer />
-            <div style={{ width: "1400px", height: "600px", border: "1px solid red", overflowX: "scroll" }}>
+            <div style={{ height: "600px", border: "1px solid red", overflowX: "scroll" }}>
                 <table>
                     <tr>
                         <th style={{ minWidth: "150px" }} >アクセス ID</th>
