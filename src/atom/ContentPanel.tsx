@@ -78,7 +78,7 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
  */
 export function ContentPanel(props: DefaultPageProps): JSX.Element {
   return (
-    <div className="content" style={{ padding: "20px", width: "calc(100% - 440px)" }}>
+    <div className="content" style={{ padding: "20px", width: "calc(100% - 480px)" }}>
       <ContentCore menuitem={props.menuitem} />
     </div>
   )
