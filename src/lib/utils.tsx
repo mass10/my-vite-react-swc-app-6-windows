@@ -66,7 +66,7 @@ export class Utils {
 }
 
 export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
-    return <div className="super-fat" style={{ fontSize: "42px", fontWeight: "bold", textAlign: "left", padding: "12px" }}>{props.children}</div>
+    return <div className="super-fat abc" style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}>{props.children}</div>
 }
 
 export function Spacer(): JSX.Element {
