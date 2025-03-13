@@ -63,3 +63,8 @@
 .spacer {
   height: 2em;
 }
+
+.super-fat {
+  font-family: monospace, "BIZ UDゴシック", Consolas;
+  font-size: 3em;
+}
