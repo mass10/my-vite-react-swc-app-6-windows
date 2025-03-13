@@ -1,7 +1,8 @@
-# my-vite-react-swc-app-6-windows
+# 概要
 
-* React.js を触るときの PlayGround。
+* React.js を触るときのいろいろ練習。
 * Windows + コマンドプロンプト でビルドできること。
+* フロントエンドのルーターは使わずに、URL でコンテンツに到達できること。
 
 # React + TypeScript + Vite
 
