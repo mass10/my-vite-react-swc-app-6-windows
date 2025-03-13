@@ -66,5 +66,6 @@
 
 .super-fat {
   font-family: monospace, "BIZ UDゴシック", Consolas;
-  font-size: 3em;
+  font-size: "50px";
+  color: #406080;
 }
