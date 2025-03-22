@@ -1,8 +1,7 @@
 # 概要
 
-* React.js を触るときのいろいろ練習。
+* Vite + React.js + SWC の練習。
 * Windows + コマンドプロンプト でビルドできること。
-* フロントエンドのルーターは使わずに、URL でコンテンツに到達できること。
 
 # React + TypeScript + Vite
 
