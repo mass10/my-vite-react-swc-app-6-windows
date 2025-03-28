@@ -49,6 +49,7 @@ export function SidePanel(props: Props): JSX.Element {
                 <SideMenuLinkItem href="/iframe1">iframe (1)</SideMenuLinkItem>
                 <SideMenuLinkItem href="/element-rect">element-rect (1)</SideMenuLinkItem>
                 <SideMenuLinkItem href="/yoko-scroll-table">yoko scroll table (1)</SideMenuLinkItem>
+                <SideMenuLinkItem href="/font-awesome">Font Awesome</SideMenuLinkItem>
             </LinkItems>
         </div>
     )
