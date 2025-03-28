@@ -51,6 +51,7 @@ function App(): JSX.Element {
   const onMouseMove = (event: MouseEvent) => {
     const now = new Date();
     const elapsedInMillis = now.getTime() - clock.getTime();
+    setClock(now);
     if (elapsedInMillis < 1000) {
       return;
     }
