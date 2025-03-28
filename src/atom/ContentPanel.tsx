@@ -10,6 +10,7 @@ import { Zoom2 } from "../pages/Zoom2";
 import { Iframe1 } from "../pages/Iframe1";
 import { ElementRectPage } from "../pages/ElementRectPage";
 import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
+import { FontAwesome } from "../pages/FontAwesome";
 
 
 type DefaultPageProps = {
@@ -65,6 +66,9 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
   }
   else if (window.location.pathname === "/yoko-scroll-table") {
     return <YokoScrollTablePage />
+  }
+  else if (window.location.pathname === "/font-awesome") {
+    return <FontAwesome />
   }
   else if (props.menuitem) {
     console.warn(`Unknown menu item: ${props.menuitem}`)
