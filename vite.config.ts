@@ -18,6 +18,7 @@ export default defineConfig({
         "scale-or-zoom": resolve(__dirname, "scale-or-zoom/index.html"),
         "zoom2": resolve(__dirname, "zoom2/index.html"),
         "yoko-scroll-table": resolve(__dirname, "yoko-scroll-table/index.html"),
+        "font-awesome": resolve(__dirname, "font-awesome/index.html"),
       }
     }
   }
