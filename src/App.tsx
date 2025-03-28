@@ -35,6 +35,8 @@ function App(): JSX.Element {
     keywords: 'home, page',
   }
 
+  const [clock, setClock] = useState(new Date());
+
   const [menuitem, setMenuitem] = useState<string>(getInitialMenuitem())
 
   useEffect(() => {
@@ -47,6 +49,11 @@ function App(): JSX.Element {
   }, []);
 
   const onMouseMove = (event: MouseEvent) => {
+    const now = new Date();
+    const elapsedInMillis = now.getTime() - clock.getTime();
+    if (elapsedInMillis < 1000) {
+      return;
+    }
     console.info(`[App] (${globalSessionId}) mousemove: [${event.pageX}, ${event.pageY}]`)
   }
 
