@@ -10,7 +10,7 @@ const globalSessionId = Utils.generateRandomToken();
 
 function getInitialMenuitem(): string {
   const pathname = window.location.pathname
-  console.info(`[App] pathname: [${pathname}]`)
+  // console.info(`[App] pathname: [${pathname}]`)
   if (pathname === "/") {
     return ""
   }
@@ -35,8 +35,6 @@ function App(): JSX.Element {
     keywords: 'home, page',
   }
 
-  const [clock, setClock] = useState(new Date());
-
   const [menuitem, setMenuitem] = useState<string>(getInitialMenuitem())
 
   useEffect(() => {
@@ -49,14 +47,8 @@ function App(): JSX.Element {
   }, []);
 
   const onMouseMove = (event: MouseEvent) => {
-    const now = new Date();
-    const elapsedInMillis = now.getTime() - clock.getTime();
-    setClock(now);
-    if (elapsedInMillis < 1000) {
-      return;
-    }
     console.info(`[App] (${globalSessionId}) mousemove: [${event.pageX}, ${event.pageY}]`)
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("mousemove", onMouseMove);
