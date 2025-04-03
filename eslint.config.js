@@ -19,6 +19,9 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      // 未使用の変数を許可
+      '@typescript-eslint/no-unused-vars': 'off',
+      "@typescript-eslint/no-empty-object-type": "off",
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
