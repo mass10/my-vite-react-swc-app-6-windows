@@ -47,7 +47,7 @@ function App(): JSX.Element {
   }, []);
 
   const onMouseMove = (event: MouseEvent) => {
-    console.info(`[App] (${globalSessionId}) mousemove: [${event.pageX}, ${event.pageY}]`)
+    // console.info(`[App] (${globalSessionId}) mousemove: [${event.pageX}, ${event.pageY}]`)
   };
 
   useEffect(() => {
