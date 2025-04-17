@@ -1,71 +1,71 @@
 #root {
-  /* width: 100%; */
-  /* height: 100%; */
-  text-align: center;
+	/* width: 100%; */
+	/* height: 100%; */
+	text-align: center;
 }
 
 * {
-  font-family: 'BIZ UDゴシック', 'Migu 1M', Consolas, monospace;
+	font-family: "BIZ UDゴシック", "Migu 1M", Consolas, monospace;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+	height: 6em;
+	padding: 1.5em;
+	will-change: filter;
+	transition: filter 300ms;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+	filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+	filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
 
-  to {
-    transform: rotate(360deg);
-  }
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear;
+	}
 }
 
 .card {
-  padding: 2em;
+	padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+	color: #888;
 }
 
 .fixedWidth {
-  font-family: BIZ UDゴシック, Consolas, monospace;
+	font-family: BIZ UDゴシック, Consolas, monospace;
 }
 
 .information {
-  color: #506070;
-  font-size: 1em;
-  text-align: left;
-  background-color: #e6f9ff;
-  padding: 1em;
-  border-left: 5px solid #b0e0e6;
+	color: #506070;
+	font-size: 1em;
+	text-align: left;
+	background-color: #e6f9ff;
+	padding: 1em;
+	border-left: 5px solid #b0e0e6;
 }
 
 .spacer {
-  height: 2em;
+	height: 2em;
 }
 
 .super-fat {
-  font-family: monospace, "BIZ UDゴシック", Consolas;
-  font-size: 70px;
-  color: #406080;
+	font-family: monospace, "BIZ UDゴシック", Consolas;
+	font-size: 70px;
+	color: #406080;
 }
