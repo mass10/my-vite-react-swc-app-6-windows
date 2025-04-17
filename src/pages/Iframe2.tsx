@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { PageTitle, Spacer } from "../lib/utils"
-import { Information } from "../atom/Information"
+import { useEffect, useState } from "react";
+import { PageTitle, Spacer } from "../lib/utils";
+import { Information } from "../atom/Information";
 
 /**
  * ポップアップのサンプル
@@ -9,103 +9,101 @@ import { Information } from "../atom/Information"
  * @returns JSX.Element
  */
 export function PopupExample(props: {}): JSX.Element {
-    // 拡大率
-    const [scale, setScale] = useState<number>(1.0)
+	// 拡大率
+	const [scale, setScale] = useState<number>(1.0);
 
-    useEffect(() => {
-        // initializeIframe(url);
-    }, [])
+	useEffect(() => {
+		// initializeIframe(url);
+	}, []);
 
-    useEffect(() => {
-        console.log(`[TransformOrZoomPage1] scale: ${scale}`)
-    }, [scale])
+	useEffect(() => {
+		console.log(`[TransformOrZoomPage1] scale: ${scale}`);
+	}, [scale]);
 
-    return (
-        <>
-            <PageTitle>埋め込み IFRAME の確認</PageTitle>
+	return (
+		<>
+			<PageTitle>埋め込み IFRAME の確認</PageTitle>
 
-            <Spacer />
-            <Information>
-                拡大と縮小のサンプルです。
-            </Information>
+			<Spacer />
+			<Information>拡大と縮小のサンプルです。</Information>
 
-            {/* 無駄な隙間 */}
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
-        </>
-    )
+			{/* 無駄な隙間 */}
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+			<Spacer />
+		</>
+	);
 }
