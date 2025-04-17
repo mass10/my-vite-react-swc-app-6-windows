@@ -1,68 +1,67 @@
 export class Constants {
-    public static readonly BUILD_TIMESTAMP = "{{build_timestamp}}";
+	public static readonly BUILD_TIMESTAMP = "{{build_timestamp}}";
 }
 
-export type PageContext = {
-
-}
+export type PageContext = {};
 
 export class Utils {
-    public static generateRandomToken(): string {
-        return Math.random().toString(36).slice(-8)
-    }
+	public static generateRandomToken(): string {
+		return Math.random().toString(36).slice(-8);
+	}
 
-    /**
-     * 要素の幅を返します。
-     *
-     * @param id 要素の ID
-     * @returns 要素の幅
-     */
-    public static getElementWidth(id: string): number {
-        const element = document.getElementById(id);
-        if (!element) return 0;
-        return element.clientWidth || 0;
-    }
+	/**
+	 * 要素の幅を返します。
+	 *
+	 * @param id 要素の ID
+	 * @returns 要素の幅
+	 */
+	public static getElementWidth(id: string): number {
+		const element = document.getElementById(id);
+		if (!element) return 0;
+		return element.clientWidth || 0;
+	}
 
-    public static getElementHeight(elementId: string): number {
-        const e = document.getElementById(elementId);
-        if (!e) return 0;
-        return e.clientHeight || 0
-    }
+	public static getElementHeight(elementId: string): number {
+		const e = document.getElementById(elementId);
+		if (!e) return 0;
+		return e.clientHeight || 0;
+	}
 
-    /**
-     * 秒までしか表現できていない
-     */
-    public static getCurrentTimestampBak(): string {
-        return new Date().toLocaleString('ja-JP', {
-            timeZone: 'Asia/Tokyo',
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        }).replace(/\//g, '-');
-    }
+	/**
+	 * 秒までしか表現できていない
+	 */
+	public static getCurrentTimestampBak(): string {
+		return new Date()
+			.toLocaleString("ja-JP", {
+				timeZone: "Asia/Tokyo",
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+				hour: "2-digit",
+				minute: "2-digit",
+				second: "2-digit",
+			})
+			.replace(/\//g, "-");
+	}
 
-    /**
-     * タイムスタンプを返します。(JST +09:00)
-     */
-    public static getCurrentTimestamp(): string {
-        const now = new Date();
-        const duration = now.getTimezoneOffset();
-        now.setTime(now.getTime() - duration * 60 * 1000);
-        return now.toISOString().replace('T', ' ').replace('Z', '') + "+09:00";
-    }
+	/**
+	 * タイムスタンプを返します。(JST +09:00)
+	 */
+	public static getCurrentTimestamp(): string {
+		const now = new Date();
+		const duration = now.getTimezoneOffset();
+		now.setTime(now.getTime() - duration * 60 * 1000);
+		return now.toISOString().replace("T", " ").replace("Z", "") + "+09:00";
+	}
 
-
-    public static getBuiltTimestamp(): string {
-        if (0 <= Constants.BUILD_TIMESTAMP.indexOf("{{build_timestamp")) {
-            // ・localhost で実行中
-            // ・何らかの理由で置換に失敗している
-            return "不明"
-        }
-        return Constants.BUILD_TIMESTAMP;
-    }
+	public static getBuiltTimestamp(): string {
+		if (0 <= Constants.BUILD_TIMESTAMP.indexOf("{{build_timestamp")) {
+			// ・localhost で実行中
+			// ・何らかの理由で置換に失敗している
+			return "不明";
+		}
+		return Constants.BUILD_TIMESTAMP;
+	}
 }
 
 /**
@@ -72,7 +71,14 @@ export class Utils {
  * @returns JSX.Element
  */
 export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
-    return <div className="super-fat abc" style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}>{props.children}</div>
+	return (
+		<div
+			className="super-fat abc"
+			style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}
+		>
+			{props.children}
+		</div>
+	);
 }
 
 /**
@@ -81,5 +87,5 @@ export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
  * @returns JSX.Element
  */
 export function Spacer(): JSX.Element {
-    return <div className="spacer" />
+	return <div className="spacer" />;
 }
