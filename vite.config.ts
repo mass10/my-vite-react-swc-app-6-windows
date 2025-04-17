@@ -14,7 +14,7 @@ export default defineConfig({
         "floating-layout-example": resolve(__dirname, "floating-layout-example/index.html"),
         "grid-layout-example": resolve(__dirname, "grid-layout-example/index.html"),
         "iframe1": resolve(__dirname, "iframe1/index.html"),
-        "popoup": resolve(__dirname, "popoup/index.html"),
+        "popup": resolve(__dirname, "popup/index.html"),
         "large-canvas-1": resolve(__dirname, "large-canvas-1/index.html"),
         "scale-or-zoom": resolve(__dirname, "scale-or-zoom/index.html"),
         "zoom2": resolve(__dirname, "zoom2/index.html"),
