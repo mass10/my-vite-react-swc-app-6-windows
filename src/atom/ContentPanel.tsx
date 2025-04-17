@@ -11,6 +11,7 @@ import { Iframe1 } from "../pages/Iframe1";
 import { ElementRectPage } from "../pages/ElementRectPage";
 import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 import { FontAwesome } from "../pages/FontAwesome";
+import { PopupExample } from "../pages/Iframe2";
 
 
 type DefaultPageProps = {
@@ -60,6 +61,9 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
   }
   else if (window.location.pathname === "/iframe1") {
     return <Iframe1 />
+  }
+  else if (window.location.pathname === "/popup") {
+    return <PopupExample />
   }
   else if (window.location.pathname === "/element-rect") {
     return <ElementRectPage />
