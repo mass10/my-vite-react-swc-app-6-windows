@@ -11,7 +11,7 @@ import { Iframe1 } from "../pages/Iframe1";
 import { ElementRectPage } from "../pages/ElementRectPage";
 import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 import { FontAwesome } from "../pages/FontAwesome";
-import { PopupExample } from "../pages/Iframe2";
+import { PopupExample } from "../pages/PopupExample";
 
 type DefaultPageProps = {
 	menuitem: string;
