@@ -65,10 +65,21 @@ export class Utils {
     }
 }
 
+/**
+ * ページのタイトルを表示するコンポーネント
+ *
+ * @param props コンポーネントのプロパティ
+ * @returns JSX.Element
+ */
 export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
     return <div className="super-fat abc" style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}>{props.children}</div>
 }
 
+/**
+ * 空行を表示するコンポーネント
+ *
+ * @returns JSX.Element
+ */
 export function Spacer(): JSX.Element {
     return <div className="spacer" />
 }
