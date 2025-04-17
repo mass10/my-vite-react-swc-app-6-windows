@@ -31,6 +31,9 @@ jobs:
       - name: ワークスペースをセットアップ
         run: npm install
 
+      - name: アプリケーションの静的解析
+        run: npm run lint
+
       - name: アプリケーションをビルド
         run: npm run build
 
