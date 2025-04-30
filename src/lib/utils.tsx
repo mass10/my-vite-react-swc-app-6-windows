@@ -1,4 +1,12 @@
+/**
+ * 定数
+ */
 export class Constants {
+	/**
+	 * アプリケーションをビルドした日時を返します。
+	 * 
+	 * * GitHub Actions でビルドが走る直前に値が置換されます。
+	 */
 	public static readonly BUILD_TIMESTAMP = "{{build_timestamp}}";
 }
 
