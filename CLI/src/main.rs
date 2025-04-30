@@ -1,3 +1,7 @@
+//!
+//! CLI ユーティリティー
+//!
+
 ///
 /// ディレクトリーのパスを取得します。
 ///
@@ -40,6 +44,15 @@ impl DirectoryRecovery {
 }
 
 ///
+/// DirectoryRecovery に Drop を実装します。
+///
+impl Drop for DirectoryRecovery {
+	fn drop(&mut self) {
+		let _ = self.recover();
+	}
+}
+
+///
 /// 指定されたタイムゾーンで現在のタイムスタンプを返します。
 ///
 pub fn get_current_timestamnp_by(hours: i64) -> String {
@@ -57,12 +70,6 @@ pub fn get_current_timestamp() -> String {
 	let now = chrono::Utc::now();
 	// ミリ秒までフォーマット
 	return now.format("%Y-%m-%d %H:%M:%S%.3f").to_string();
-}
-
-impl Drop for DirectoryRecovery {
-	fn drop(&mut self) {
-		let _ = self.recover();
-	}
 }
 
 ///
