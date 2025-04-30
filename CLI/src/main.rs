@@ -105,6 +105,11 @@ fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
 fn usage() {
 	let program_name = env!("CARGO_PKG_NAME");
 	eprintln!("usage: {} [options]", program_name);
+	eprintln!("");
+	eprintln!("Options:");
+	eprintln!("  --update-time   タイムスタンプを更新します。");
+	eprintln!("  --help          このヘルプを表示します。");
+	eprintln!("");
 }
 
 fn configure() -> Result<(), Box<dyn std::error::Error>> {
@@ -123,6 +128,7 @@ fn launch() -> Result<(), Box<dyn std::error::Error>> {
 		update_timestamp_file()?;
 	}
 
+	usage();
 	return Ok(());
 }
 
