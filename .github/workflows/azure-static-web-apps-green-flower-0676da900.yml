@@ -25,7 +25,7 @@ jobs:
           lfs: false
 
       - name: ビルドタイムスタンプの更新
-        run: cargo run
+        run: cargo run -- --update-time
         working-directory: CLI
 
       - name: ワークスペースをセットアップ
