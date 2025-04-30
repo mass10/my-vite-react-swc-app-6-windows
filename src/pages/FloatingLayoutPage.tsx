@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { PageTitle, Spacer, Utils } from "../lib/utils";
 import { Information } from "../atom/Information";
 
@@ -6,19 +6,19 @@ function Card1(props: { refresh: string }): JSX.Element {
 	const [id, _] = useState(Utils.generateRandomToken());
 	const [description, setDescription] = React.useState("");
 
-	const updateComponent = () => {
+	const updateComponent = useCallback(() => {
 		// 要素の幅を確認
 		const width = Utils.getElementWidth(id);
 		setDescription(`${id}, ${width}px`);
-	};
+	}, [id]);
 
 	useEffect(() => {
 		updateComponent();
-	}, []);
+	}, [updateComponent]);
 
 	useEffect(() => {
 		updateComponent();
-	}, [props.refresh]);
+	}, [updateComponent, props.refresh]);
 
 	const cardStyle = {
 		textAlign: "left",
@@ -50,7 +50,7 @@ export function FloatingLayoutPage(): JSX.Element {
 	// キャンバスの表示用
 	const [description, setDescription] = React.useState("");
 
-	const updateRedrawCanvas = () => {
+	const updateRedrawCanvas = useCallback(() => {
 		console.debug(`[FloatingLayoutPage] 再描画`);
 		// 表示文字列の更新
 		const canvasWidth = Utils.getElementWidth(canvasId);
@@ -59,16 +59,16 @@ export function FloatingLayoutPage(): JSX.Element {
 		);
 		// すべてのカードに再描画通知を送信
 		setUpdateNotification(Utils.generateRandomToken());
-	};
+	}, [canvasId]);
 
-	const onResizedHandler = () => {
+	const onResizedHandler = useCallback(() => {
 		updateRedrawCanvas();
-	};
+	}, [updateRedrawCanvas]);
 
 	// コンポーネントのマウント時に、キャンバスの幅を確認
 	useEffect(() => {
 		updateRedrawCanvas();
-	}, []);
+	}, [updateRedrawCanvas]);
 
 	// キャンバスのリサイズをウォッチ
 	useEffect(() => {
@@ -76,7 +76,7 @@ export function FloatingLayoutPage(): JSX.Element {
 		return () => {
 			window.removeEventListener("resize", onResizedHandler);
 		};
-	}, []);
+	}, [onResizedHandler]);
 
 	return (
 		<>
