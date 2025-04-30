@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { PageTitle, Spacer, Utils } from "../lib/utils";
 import { Information } from "../atom/Information";
 
@@ -9,7 +9,7 @@ function Card1(props: {}): JSX.Element {
 	useEffect(() => {
 		const width = Utils.getElementWidth(id);
 		setDescription(`id: [${id}], width: [${width}px]`);
-	}, []);
+	}, [id]);
 
 	const cardStyle = {
 		textAlign: "left",
@@ -34,23 +34,23 @@ export function GridLayoutPage(): JSX.Element {
 	const [canvasId, _] = React.useState(Utils.generateRandomToken());
 	const [description, setDescription] = React.useState("");
 
-	const updateRedrawCanvas = () => {
+	const updateRedrawCanvas = useCallback(() => {
 		// 表示文字列の更新
 		const canvasWidth = Utils.getElementWidth(canvasId);
 		setDescription(
 			`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`,
 		);
-	};
+	}, [canvasId]);
 
-	const onResizedHandler = () => {
+	const onResizedHandler = useCallback(() => {
 		console.debug(`[onResizedHandler] キャンバスのリサイズを検知しました。`);
 		updateRedrawCanvas();
-	};
+	}, [updateRedrawCanvas]);
 
 	// コンポーネントのマウント時に、キャンバスの幅を確認
 	useEffect(() => {
 		updateRedrawCanvas();
-	}, []);
+	}, [updateRedrawCanvas]);
 
 	// キャンバスのリサイズをウォッチ
 	useEffect(() => {
@@ -58,7 +58,7 @@ export function GridLayoutPage(): JSX.Element {
 		return () => {
 			window.removeEventListener("resize", onResizedHandler);
 		};
-	}, []);
+	}, [onResizedHandler]);
 
 	return (
 		<>
