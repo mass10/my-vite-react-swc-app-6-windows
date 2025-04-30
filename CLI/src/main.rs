@@ -112,23 +112,21 @@ fn usage() {
 	eprintln!("");
 }
 
-fn configure() -> Result<(), Box<dyn std::error::Error>> {
-	// NOP
-	return Ok(());
+fn configure() -> Result<String, Box<dyn std::error::Error>> {
+	let args: Vec<String> = std::env::args().skip(1).collect();
+	if args.len() == 0 {
+		return Ok("".into());
+	}
+	return Ok(args[0].to_string());
 }
 
 fn launch() -> Result<(), Box<dyn std::error::Error>> {
-	let args: Vec<String> = std::env::args().skip(1).collect();
-	if args.len() == 0 {
-		usage();
-		return Ok(());
-	}
-
-	if args[0] == "--update-time" {
+	let request = configure()?;
+	if request == "--update-time" {
 		update_timestamp_file()?;
+	} else {
+		usage();
 	}
-
-	usage();
 	return Ok(());
 }
 
