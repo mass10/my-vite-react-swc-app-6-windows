@@ -1,1 +1,1 @@
-@cargo fmt && cargo run
+@cargo fmt && cargo run -- %*
