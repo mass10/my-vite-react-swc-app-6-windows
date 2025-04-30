@@ -100,10 +100,37 @@ fn update_timestamp_file() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 ///
+/// 使用方法
+///
+fn usage() {
+	let program_name = env!("CARGO_PKG_NAME");
+	eprintln!("usage: {} [options]", program_name);
+}
+
+fn configure() -> Result<(), Box<dyn std::error::Error>> {
+	// NOP
+	return Ok(());
+}
+
+fn launch() -> Result<(), Box<dyn std::error::Error>> {
+	let args: Vec<String> = std::env::args().skip(1).collect();
+	if args.len() == 0 {
+		usage();
+		return Ok(());
+	}
+
+	if args[0] == "--update-time" {
+		update_timestamp_file()?;
+	}
+
+	return Ok(());
+}
+
+///
 /// Rust アプリケーションのエントリーポイント
 ///
 fn main() {
-	let result = update_timestamp_file();
+	let result = launch();
 	if result.is_err() {
 		eprintln!("Error: {}", result.err().unwrap());
 		std::process::exit(1);
