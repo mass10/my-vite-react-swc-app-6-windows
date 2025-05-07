@@ -20,6 +20,7 @@ export default defineConfig({
         "zoom2": resolve(__dirname, "zoom2/index.html"),
         "yoko-scroll-table": resolve(__dirname, "yoko-scroll-table/index.html"),
         "font-awesome": resolve(__dirname, "font-awesome/index.html"),
+        "canvas-1": resolve(__dirname, "canvas-1/index.html"),
       }
     }
   }
