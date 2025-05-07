@@ -13,7 +13,7 @@ export function PopupExample(props: {}): JSX.Element {
 	// 拡大率
 	const [scale, setScale] = useState<number>(1.0);
 	// ポップアップ
-	const {refs, floatingStyles} = useFloating();
+	const { refs, floatingStyles } = useFloating();
 
 	useEffect(() => {
 		// initializeIframe(url);
@@ -31,9 +31,9 @@ export function PopupExample(props: {}): JSX.Element {
 			<Information>ポップアップのサンプルです。</Information>
 
 			<button ref={refs.setReference}>Button</button>
-      <div ref={refs.setFloating} style={floatingStyles}>
-        Tooltip
-      </div>
+			<div ref={refs.setFloating} style={floatingStyles}>
+				Tooltip
+			</div>
 
 			{/* 無駄な隙間 */}
 			<Spacer />
