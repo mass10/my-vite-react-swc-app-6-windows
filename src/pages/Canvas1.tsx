@@ -20,15 +20,16 @@ function loadImage(url: string): Promise<HTMLImageElement> {
 }
 
 export function Canvas1(props: {}): JSX.Element {
-
 	useEffect(() => {
 		const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
 		if (canvas) {
-			loadImage("/images/manul-cat.jpg").then((image) => {
-				setImageToCanvas(canvas, image);
-			}).catch((error) => {
-				console.error("Error loading image:", error);
-			});
+			loadImage("/images/manul-cat.jpg")
+				.then((image) => {
+					setImageToCanvas(canvas, image);
+				})
+				.catch((error) => {
+					console.error("Error loading image:", error);
+				});
 		} else {
 			console.error("Canvas element not found");
 		}
@@ -37,10 +38,8 @@ export function Canvas1(props: {}): JSX.Element {
 	return (
 		<>
 			<PageTitle>Canvas 1</PageTitle>
-
 			<Spacer />
 			<Information>CANVAS 画像のサンプルです。</Information>
-
 			<Spacer />
 			<canvas
 				id="canvas1"
@@ -56,11 +55,9 @@ export function Canvas1(props: {}): JSX.Element {
 					borderColor: "black",
 				}}
 			/>
-
 			<Spacer />
 			サンプル
 			<img src="/images/manul-cat.jpg" alt="Manul Cat" style={{ width: "100px", height: "auto", border: "solid 1px red", padding: 0, margin: 0 }} />
-
 		</>
 	);
 }
