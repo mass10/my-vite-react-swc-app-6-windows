@@ -10,10 +10,7 @@ export function HeaderPanel(): JSX.Element {
 					textAlign: "left",
 				}}
 			>
-				<a
-					href="/"
-					style={{ fontSize: "26px", textDecoration: "none", color: "#ffffff" }}
-				>
+				<a href="/" style={{ fontSize: "26px", textDecoration: "none", color: "#ffffff" }}>
 					React.js のウェブサイト
 				</a>
 			</div>
