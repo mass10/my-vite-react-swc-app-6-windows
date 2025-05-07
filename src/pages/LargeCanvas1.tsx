@@ -7,11 +7,7 @@ interface CardItem {
 	left: number;
 }
 
-function enumCardItems(
-	maxLeft: number,
-	maxTop: number,
-	count: number,
-): CardItem[] {
+function enumCardItems(maxLeft: number, maxTop: number, count: number): CardItem[] {
 	const items: CardItem[] = [];
 
 	for (let i = 1; i <= count; i++) {
