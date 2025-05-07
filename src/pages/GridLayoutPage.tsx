@@ -37,9 +37,7 @@ export function GridLayoutPage(): JSX.Element {
 	const updateRedrawCanvas = useCallback(() => {
 		// 表示文字列の更新
 		const canvasWidth = Utils.getElementWidth(canvasId);
-		setDescription(
-			`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`,
-		);
+		setDescription(`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`);
 	}, [canvasId]);
 
 	const onResizedHandler = useCallback(() => {
@@ -65,9 +63,7 @@ export function GridLayoutPage(): JSX.Element {
 			<PageTitle>グリッドレイアウトの確認</PageTitle>
 
 			<Spacer />
-			<Information>
-				画面幅に合わせてカードの幅が変わることを確認します。
-			</Information>
+			<Information>画面幅に合わせてカードの幅が変わることを確認します。</Information>
 
 			<Spacer />
 			<div style={{ textAlign: "left" }}>[DEBUG] {description}</div>
