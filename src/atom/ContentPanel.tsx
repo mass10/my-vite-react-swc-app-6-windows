@@ -18,7 +18,13 @@ type DefaultPageProps = {
 	menuitem: string;
 };
 
-function ContentCore(props: { menuitem: string }): JSX.Element {
+/**
+ * コンテンツの切り替え
+ *
+ * @param props コンポーネントのプロパティ
+ * @returns JSX.Element
+ */
+function ContentSwitch(props: { menuitem: string }): JSX.Element {
 	// コンテンツのルーティング
 	if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
 		return <YoutubePage url={props.menuitem} />;
@@ -71,7 +77,7 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
 export function ContentPanel(props: DefaultPageProps): JSX.Element {
 	return (
 		<div className="content" style={{ padding: "20px", width: "calc(100% - 480px)" }}>
-			<ContentCore menuitem={props.menuitem} />
+			<ContentSwitch menuitem={props.menuitem} />
 		</div>
 	);
 }
