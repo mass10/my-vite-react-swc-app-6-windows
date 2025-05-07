@@ -22,11 +22,7 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
 	if (0 <= props.menuitem.indexOf("https://www.youtube.com/")) {
 		return <YoutubePage url={props.menuitem} />;
 	} else if (props.menuitem === "/embedded1") {
-		return (
-			<YoutubePage
-				url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"}
-			/>
-		);
+		return <YoutubePage url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"} />;
 	} else if (0 <= props.menuitem.indexOf("チャレンジ1")) {
 		return <UrlTestForm update={Utils.generateRandomToken()} />;
 	} else if (props.menuitem === "フローティングなレイアウト") {
@@ -38,11 +34,7 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
 	} else if (props.menuitem === "/scale-or-zoom") {
 		return <TransformOrZoomPage1 />;
 	} else if (window.location.pathname === "/embedded1") {
-		return (
-			<YoutubePage
-				url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"}
-			/>
-		);
+		return <YoutubePage url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"} />;
 	} else if (window.location.pathname === "/floating-layout-example") {
 		return <FloatingLayoutPage />;
 	} else if (window.location.pathname === "/grid-layout-example") {
@@ -75,10 +67,7 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
  */
 export function ContentPanel(props: DefaultPageProps): JSX.Element {
 	return (
-		<div
-			className="content"
-			style={{ padding: "20px", width: "calc(100% - 480px)" }}
-		>
+		<div className="content" style={{ padding: "20px", width: "calc(100% - 480px)" }}>
 			<ContentCore menuitem={props.menuitem} />
 		</div>
 	);
