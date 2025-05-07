@@ -4,7 +4,7 @@
 export class Constants {
 	/**
 	 * アプリケーションをビルドした日時を返します。
-	 * 
+	 *
 	 * * GitHub Actions でビルドが走る直前に値が置換されます。
 	 */
 	public static readonly BUILD_TIMESTAMP = "{{build_timestamp}}";
@@ -80,10 +80,7 @@ export class Utils {
  */
 export function PageTitle(props: { children: React.ReactNode }): JSX.Element {
 	return (
-		<div
-			className="super-fat abc"
-			style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}
-		>
+		<div className="super-fat abc" style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}>
 			{props.children}
 		</div>
 	);
