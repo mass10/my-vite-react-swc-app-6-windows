@@ -12,6 +12,7 @@ import { ElementRectPage } from "../pages/ElementRectPage";
 import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 import { FontAwesome } from "../pages/FontAwesome";
 import { PopupExample } from "../pages/PopupExample";
+import { Canvas1 } from "../pages/Canvas1";
 
 type DefaultPageProps = {
 	menuitem: string;
@@ -55,6 +56,8 @@ function ContentCore(props: { menuitem: string }): JSX.Element {
 		return <YokoScrollTablePage />;
 	} else if (window.location.pathname === "/font-awesome") {
 		return <FontAwesome />;
+	} else if (window.location.pathname === "/canvas-1") {
+		return <Canvas1 />;
 	} else if (props.menuitem) {
 		console.warn(`Unknown menu item: ${props.menuitem}`);
 	}
