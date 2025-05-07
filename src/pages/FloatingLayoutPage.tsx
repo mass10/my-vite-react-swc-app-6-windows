@@ -44,9 +44,7 @@ export function FloatingLayoutPage(): JSX.Element {
 	// キャンバスの ID を生成
 	const [canvasId, _] = useState(Utils.generateRandomToken());
 	// キャンバスがリサイズされたときに、カードを再描画することができるか？
-	const [updateNotification, setUpdateNotification] = React.useState(
-		Utils.generateRandomToken(),
-	);
+	const [updateNotification, setUpdateNotification] = React.useState(Utils.generateRandomToken());
 	// キャンバスの表示用
 	const [description, setDescription] = React.useState("");
 
@@ -54,9 +52,7 @@ export function FloatingLayoutPage(): JSX.Element {
 		console.debug(`[FloatingLayoutPage] 再描画`);
 		// 表示文字列の更新
 		const canvasWidth = Utils.getElementWidth(canvasId);
-		setDescription(
-			`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`,
-		);
+		setDescription(`timestamp: [${Utils.getCurrentTimestamp()}], canvasId: [${canvasId}], width: [${canvasWidth}px]`);
 		// すべてのカードに再描画通知を送信
 		setUpdateNotification(Utils.generateRandomToken());
 	}, [canvasId]);
@@ -83,9 +79,7 @@ export function FloatingLayoutPage(): JSX.Element {
 			<PageTitle>フローティングなレイアウトの確認</PageTitle>
 
 			<Spacer />
-			<Information>
-				画面幅に合わせてカードが整列されることを確認します。
-			</Information>
+			<Information>画面幅に合わせてカードが整列されることを確認します。</Information>
 
 			<Spacer />
 			<div style={{ textAlign: "left" }}>[DEBUG] {description}</div>
