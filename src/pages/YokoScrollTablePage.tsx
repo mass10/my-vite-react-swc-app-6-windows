@@ -216,16 +216,7 @@ export function YokoScrollTablePage(props: {}): JSX.Element {
 		},
 	];
 
-	const COLUMNS = [
-		"アクセス ID",
-		"ユーザ ID",
-		"アクセス日時",
-		"IP アドレス",
-		"デバイス",
-		"OS",
-		"ブラウザ",
-		"ページ URL",
-	];
+	const COLUMNS = ["アクセス ID", "ユーザ ID", "アクセス日時", "IP アドレス", "デバイス", "OS", "ブラウザ", "ページ URL"];
 
 	return (
 		<>
