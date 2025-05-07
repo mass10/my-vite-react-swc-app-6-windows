@@ -55,9 +55,6 @@ export function Canvas1(props: {}): JSX.Element {
 					borderColor: "black",
 				}}
 			/>
-			<Spacer />
-			サンプル
-			<img src="/images/manul-cat.jpg" alt="Manul Cat" style={{ width: "100px", height: "auto", border: "solid 1px red", padding: 0, margin: 0 }} />
 		</>
 	);
 }
