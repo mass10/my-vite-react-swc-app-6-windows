@@ -83,9 +83,7 @@ export function ElementRectPage(props: {}): JSX.Element {
 
 			<Spacer />
 			<div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-				<Information>
-					getBoundingClientRect とスクロール位置の関係を確認しています。
-				</Information>
+				<Information>getBoundingClientRect とスクロール位置の関係を確認しています。</Information>
 				<Information>
 					マウスカーソルの位置: [{x}, {y}]
 				</Information>
@@ -93,9 +91,7 @@ export function ElementRectPage(props: {}): JSX.Element {
 
 			<Spacer />
 			<div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-				<div style={{ textAlign: "left" }}>
-					拡大率: 0.1～2.0 (現在: {scale})
-				</div>
+				<div style={{ textAlign: "left" }}>拡大率: 0.1～2.0 (現在: {scale})</div>
 				<div style={{ textAlign: "left" }}>
 					<input
 						type="range"
