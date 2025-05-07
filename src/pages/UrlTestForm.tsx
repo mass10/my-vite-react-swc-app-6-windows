@@ -19,19 +19,14 @@ async function challenge1(url: string): Promise<void> {
 		});
 		console.info(`[anonymous] リクエストが成功しました。`, response);
 		response.headers.forEach((value, key) => {
-			console.info(
-				`[anonymous] RESPONSE HEADER key: [${key}], value: [${value}]`,
-			);
+			console.info(`[anonymous] RESPONSE HEADER key: [${key}], value: [${value}]`);
 		});
 
 		// 応答本文を JSON として解析
 		const json = await response.json();
 		console.info(`[anonymous] RESPONSE BODY:`, json);
 	} catch (error) {
-		console.error(
-			`[anonymous] リクエストで実行時エラーが発生しました。`,
-			error,
-		);
+		console.error(`[anonymous] リクエストで実行時エラーが発生しました。`, error);
 	}
 }
 
