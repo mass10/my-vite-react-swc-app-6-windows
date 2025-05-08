@@ -21,7 +21,7 @@ function generateImageElement(url: string): Promise<HTMLImageElement> {
 	});
 }
 
-function CanvasImage(props: { id: string, src: string; width: number; height: number }) {
+function CanvasImage(props: { id: string, src: string; width: number; height: number | string }) {
 	useEffect(() => {
 		const canvas = document.getElementById(props.id) as HTMLCanvasElement;
 		if (!canvas) {
