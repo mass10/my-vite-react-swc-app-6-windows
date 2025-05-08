@@ -41,20 +41,29 @@ export function Canvas1(props: {}): JSX.Element {
 			<Spacer />
 			<Information>CANVAS 画像のサンプルです。</Information>
 			<Spacer />
-			<canvas
-				id="canvas1"
-				style={{
-					width: "300px",
-					height: "auto",
-					border: "none",
-					padding: 0,
-					margin: 0,
-					zoom: 1.75,
-					borderStyle: "solid",
-					borderWidth: "1px",
-					borderColor: "black",
-				}}
-			/>
+			<div style={{ display: "flex", flexDirection: "row", justifyContent: "left", alignItems: "center", gap: "10px" }}>
+				<div style={{ textAlign: "left" }}>
+					canvas<br />
+					<canvas
+						id="canvas1"
+						style={{
+							width: "100px",
+							height: "68px",
+							border: "none",
+							padding: 0,
+							margin: 0,
+							zoom: 2.0,
+							borderStyle: "solid",
+							borderWidth: "0px",
+							borderColor: "#909090",
+						}}
+					/>
+				</div>
+				<div style={{ textAlign: "left" }}>
+					img<br />
+					<img src="https://tmp-0c699a36-36f3-4c75-818e-49b1d804851c.s3.us-east-1.amazonaws.com/manul-cat.jpg" alt="Manul Cat" style={{ width: "200px", height: "auto" }} />
+				</div>
+			</div>
 		</>
 	);
 }
