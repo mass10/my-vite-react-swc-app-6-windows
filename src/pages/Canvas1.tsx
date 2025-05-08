@@ -41,7 +41,7 @@ function CanvasImage(props: { id: string, src: string; width: number; height: nu
 	return (
 		<div style={{ textAlign: "left" }}>
 			<div style={{ textAlign: "left"}}>
-				CANVAS: {props.src}<br />
+				CANVAS: <a href={props.src}>{props.src}</a><br />
 			</div>
 			<canvas
 				id={props.id}
@@ -65,7 +65,7 @@ function BasicImage(props: { src: string; width: number | string; height: number
 	return (
 		<div style={{ textAlign: "left" }}>
 			<div style={{ textAlign: "left"}}>
-				IMG: {props.src}<br />
+				IMG: <a href={props.src}>{props.src}</a><br />
 			</div>
 			<img src={props.src} alt="Manul Cat" style={{ width: props.width, height: props.height }} />
 			<div style={{ height: "10px" }} />
