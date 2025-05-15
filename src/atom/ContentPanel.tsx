@@ -13,6 +13,7 @@ import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 import { FontAwesome } from "../pages/FontAwesome";
 import { PopupExample } from "../pages/PopupExample";
 import { Canvas1 } from "../pages/Canvas1";
+import { CustomElements } from "../pages/CustomElements";
 
 type DefaultPageProps = {
 	menuitem: string;
@@ -64,6 +65,8 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 		return <FontAwesome />;
 	} else if (window.location.pathname === "/canvas-1") {
 		return <Canvas1 />;
+	} else if (window.location.pathname === "/custom-elements") {
+		return <CustomElements />;
 	} else if (props.menuitem) {
 		console.warn(`Unknown menu item: ${props.menuitem}`);
 	}
