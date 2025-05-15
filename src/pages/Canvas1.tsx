@@ -36,7 +36,7 @@ function CanvasImage(props: { id: string, src: string; width: number; height: nu
 			.catch((error) => {
 				console.error("Error loading image:", error);
 			});
-	}, []);
+	}, [props.id, props.src]);
 
 	return (
 		<div style={{ textAlign: "left" }}>
@@ -73,7 +73,7 @@ function BasicImage(props: { src: string; width: number | string; height: number
 	)
 }
 
-export function Canvas1(props: {}): JSX.Element {
+export function Canvas1(): JSX.Element {
 	return (
 		<>
 			<PageTitle>Canvas 1</PageTitle>
