@@ -14,6 +14,7 @@ import { FontAwesome } from "../pages/FontAwesome";
 import { PopupExample } from "../pages/PopupExample";
 import { Canvas1 } from "../pages/Canvas1";
 import { CustomElements } from "../pages/CustomElements";
+import { ShadowDomPage1 } from "../pages/ShadowDomPage1";
 
 type DefaultPageProps = {
 	menuitem: string;
@@ -65,6 +66,8 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 		return <FontAwesome />;
 	} else if (window.location.pathname === "/canvas-1") {
 		return <Canvas1 />;
+	} else if (window.location.pathname === "/shadow-dom-1") {
+		return <ShadowDomPage1 />;
 	} else if (window.location.pathname === "/custom-elements") {
 		return <CustomElements />;
 	} else if (props.menuitem) {
