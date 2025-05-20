@@ -35,30 +35,23 @@ function createInternalRootElement(): HTMLElement {
  */
 function initializeShadowDom(): void {
 	// ホストルート
-	const shadowTemplate = document.getElementById("shadow-placeholder");
-	if (!shadowTemplate) {
-		console.error("Shadow template not found");
-		return;
-	}
-	if (shadowTemplate.shadowRoot) {
-		// 既に Shadow DOM を構築済み
-		return;
-	}
-
-	if (document.getElementById("shadow-root")) {
-		console.warn("Shadow root already exists");
+	const host = document.getElementById("shadow-placeholder");
+	if (!host) {
 		return;
 	}
 
 	// Shadow DOM 内のルート要素
 	const shadowInternalRoot = createInternalRootElement();
+	
+	const shadowRoot = host.shadowRoot || host.attachShadow({ mode: "open" });
 
-	const shadowRoot = shadowTemplate.attachShadow({ mode: "open" });
+	if (shadowRoot.getElementById("shadow-root")) {
+		shadowRoot.getElementById("shadow-root")?.remove();
+	}
+
 	shadowRoot.appendChild(shadowInternalRoot);
 
-	const reactRoot = createRoot(shadowInternalRoot);
-
-	reactRoot.render(<ShadowRootElement />);
+	createRoot(shadowInternalRoot).render(<ShadowRootElement />);
 }
 
 /**
@@ -80,8 +73,8 @@ export function ShadowDomPage2(): JSX.Element {
 			<Spacer />
 			<Information>Shadow DOM 配下の要素がスタイルを持つ</Information>
 
-			<div style={{ fontWeight: "bold", textAlign: "left", padding: "12px" }}>
-				<div id="shadow-placeholder" style={{ fontSize: "20px", textAlign: "left", backgroundColor: "#f0f0f0", padding: "10px", border: "1px solid #909090" }}>
+			<div style={{ fontWeight: "bold", fontSize: "20px" }}>
+				<div id="shadow-placeholder" style={{ backgroundColor: "#f0f0f0", padding: "10px", border: "1px solid #909090" }}>
 					{/* ここに Shadow DOM が形成される */}
 				</div>
 			</div>
