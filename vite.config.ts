@@ -22,6 +22,7 @@ export default defineConfig({
         "font-awesome": "font-awesome/index.html",
         "canvas-1": "canvas-1/index.html",
         "shadow-dom-1": "shadow-dom-1/index.html",
+        "shadow-dom-2": "shadow-dom-2/index.html",
         "custom-elements": "custom-elements/index.html",
       }
     }
