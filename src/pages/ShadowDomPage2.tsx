@@ -40,15 +40,14 @@ function initializeShadowDom(): void {
 		return;
 	}
 
-	// Shadow DOM 内のルート要素
-	const shadowInternalRoot = createInternalRootElement();
-	
 	const shadowRoot = host.shadowRoot || host.attachShadow({ mode: "open" });
 
 	if (shadowRoot.getElementById("shadow-root")) {
 		shadowRoot.getElementById("shadow-root")?.remove();
 	}
 
+	// Shadow DOM 内のルート要素を構築
+	const shadowInternalRoot = createInternalRootElement();
 	shadowRoot.appendChild(shadowInternalRoot);
 
 	createRoot(shadowInternalRoot).render(<ShadowRootElement />);
