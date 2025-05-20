@@ -64,6 +64,7 @@ export function SidePanel(props: Props): JSX.Element {
 				<SideMenuLinkItem href="/yoko-scroll-table">yoko scroll table (1)</SideMenuLinkItem>
 				<SideMenuLinkItem href="/font-awesome">Font Awesome</SideMenuLinkItem>
 				<SideMenuLinkItem href="/canvas-1">Canvas のテスト1</SideMenuLinkItem>
+				<SideMenuLinkItem href="/shadow-dom-1">Shadow DOM 要素</SideMenuLinkItem>
 				<SideMenuLinkItem href="/custom-elements">カスタム要素</SideMenuLinkItem>
 			</LinkItems>
 		</div>
