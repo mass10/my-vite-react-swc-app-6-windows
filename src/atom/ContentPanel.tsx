@@ -38,37 +38,37 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 		return <FloatingLayoutPage />;
 	} else if (props.menuitem === "grid layout example") {
 		return <GridLayoutPage />;
-	} else if (props.menuitem === "/large-canvas-1") {
+	} else if (props.menuitem === "/large-canvas-1/") {
 		return <LargeCanvasPage1 />;
-	} else if (props.menuitem === "/scale-or-zoom") {
+	} else if (props.menuitem === "/scale-or-zoom/") {
 		return <TransformOrZoomPage1 />;
-	} else if (window.location.pathname === "/embedded1") {
+	} else if (window.location.pathname === "/embedded1/") {
 		return <YoutubePage url={"https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8"} />;
-	} else if (window.location.pathname === "/floating-layout-example") {
+	} else if (window.location.pathname === "/floating-layout-example/") {
 		return <FloatingLayoutPage />;
-	} else if (window.location.pathname === "/grid-layout-example") {
+	} else if (window.location.pathname === "/grid-layout-example/") {
 		return <GridLayoutPage />;
-	} else if (window.location.pathname === "/large-canvas-1") {
+	} else if (window.location.pathname === "/large-canvas-1/") {
 		return <LargeCanvasPage1 />;
-	} else if (window.location.pathname === "/scale-or-zoom") {
+	} else if (window.location.pathname === "/scale-or-zoom/") {
 		return <TransformOrZoomPage1 />;
-	} else if (window.location.pathname === "/zoom2") {
+	} else if (window.location.pathname === "/zoom2/") {
 		return <Zoom2 />;
-	} else if (window.location.pathname === "/iframe1") {
+	} else if (window.location.pathname === "/iframe1/") {
 		return <Iframe1 />;
-	} else if (window.location.pathname === "/popup") {
+	} else if (window.location.pathname === "/popup/") {
 		return <PopupExample />;
-	} else if (window.location.pathname === "/element-rect") {
+	} else if (window.location.pathname === "/element-rect/") {
 		return <ElementRectPage />;
-	} else if (window.location.pathname === "/yoko-scroll-table") {
+	} else if (window.location.pathname === "/yoko-scroll-table/") {
 		return <YokoScrollTablePage />;
-	} else if (window.location.pathname === "/font-awesome") {
+	} else if (window.location.pathname === "/font-awesome/") {
 		return <FontAwesome />;
-	} else if (window.location.pathname === "/canvas-1") {
+	} else if (window.location.pathname === "/canvas-1/") {
 		return <Canvas1 />;
-	} else if (window.location.pathname === "/shadow-dom-1") {
+	} else if (window.location.pathname === "/shadow-dom-1/") {
 		return <ShadowDomPage1 />;
-	} else if (window.location.pathname === "/custom-elements") {
+	} else if (window.location.pathname === "/custom-elements/") {
 		return <CustomElements />;
 	} else if (props.menuitem) {
 		console.warn(`Unknown menu item: ${props.menuitem}`);
