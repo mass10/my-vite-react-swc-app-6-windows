@@ -15,6 +15,7 @@ import { PopupExample } from "../pages/PopupExample";
 import { Canvas1 } from "../pages/Canvas1";
 import { CustomElements } from "../pages/CustomElements";
 import { ShadowDomPage1 } from "../pages/ShadowDomPage1";
+import { ShadowDomPage2 } from "../pages/ShadowDomPage2";
 
 type DefaultPageProps = {
 	menuitem: string;
@@ -65,9 +66,14 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 	} else if (window.location.pathname === "/font-awesome/") {
 		return <FontAwesome />;
 	} else if (window.location.pathname === "/canvas-1/") {
+		// Canvas のサンプル
 		return <Canvas1 />;
 	} else if (window.location.pathname === "/shadow-dom-1/") {
+		// 宣言的な Shadow DOM
 		return <ShadowDomPage1 />;
+	} else if (window.location.pathname === "/shadow-dom-2/") {
+		// ダイナミックな Shadow DOM
+		return <ShadowDomPage2 />;
 	} else if (window.location.pathname === "/custom-elements/") {
 		return <CustomElements />;
 	} else if (props.menuitem) {
