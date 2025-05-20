@@ -53,19 +53,19 @@ export function SidePanel(props: Props): JSX.Element {
 				</SideMenuLinkItem>
 				<SideMenuLinkItem href="/embedded1">YouTube 動画の埋め込み(/embedded1)</SideMenuLinkItem>
 				<SideMenuLinkItem onClick={() => props.handleAnchor("チャレンジ1")}>fetch チャレンジ 1</SideMenuLinkItem>
-				<SideMenuLinkItem href="/floating-layout-example">フローティングなレイアウト</SideMenuLinkItem>
-				<SideMenuLinkItem href="/grid-layout-example">グリッドなレイアウト</SideMenuLinkItem>
-				<SideMenuLinkItem href="/large-canvas-1">大きなキャンバス</SideMenuLinkItem>
-				<SideMenuLinkItem href="/scale-or-zoom">transform or zoom (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/zoom2">transform or zoom (2)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/iframe1">iframe (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/popup">popup (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/element-rect">element-rect (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/yoko-scroll-table">yoko scroll table (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/font-awesome">Font Awesome</SideMenuLinkItem>
-				<SideMenuLinkItem href="/canvas-1">Canvas のテスト1</SideMenuLinkItem>
-				<SideMenuLinkItem href="/shadow-dom-1">Shadow DOM 要素</SideMenuLinkItem>
-				<SideMenuLinkItem href="/custom-elements">カスタム要素</SideMenuLinkItem>
+				<SideMenuLinkItem href="/floating-layout-example/">フローティングなレイアウト</SideMenuLinkItem>
+				<SideMenuLinkItem href="/grid-layout-example/">グリッドなレイアウト</SideMenuLinkItem>
+				<SideMenuLinkItem href="/large-canvas-1/">大きなキャンバス</SideMenuLinkItem>
+				<SideMenuLinkItem href="/scale-or-zoom/">transform or zoom (1)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/zoom2/">transform or zoom (2)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/iframe1/">iframe (1)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/popup/">popup (1)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/element-rect/">element-rect (1)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/yoko-scroll-table/">yoko scroll table (1)</SideMenuLinkItem>
+				<SideMenuLinkItem href="/font-awesome/">Font Awesome</SideMenuLinkItem>
+				<SideMenuLinkItem href="/canvas-1/">Canvas のテスト1</SideMenuLinkItem>
+				<SideMenuLinkItem href="/shadow-dom-1/">Shadow DOM 要素</SideMenuLinkItem>
+				<SideMenuLinkItem href="/custom-elements/">カスタム要素</SideMenuLinkItem>
 			</LinkItems>
 		</div>
 	);
