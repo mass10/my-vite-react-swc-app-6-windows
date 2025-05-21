@@ -23,7 +23,7 @@ export function DocumentFragmentExamplePage(): JSX.Element {
 
     return (
 		<>
-			<PageTitle>getBoundingClientRect の確認</PageTitle>
+			<PageTitle>document fragment の確認</PageTitle>
 
 			<Spacer />
 
