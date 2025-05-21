@@ -40,16 +40,18 @@ function initializeShadowDom(): void {
 		return;
 	}
 
+	// ShadowRoot を取得
 	const shadowRoot = host.shadowRoot || host.attachShadow({ mode: "open" });
 
+	// Shadow DOM 内のルート要素を構築
 	if (shadowRoot.getElementById("shadow-root")) {
 		shadowRoot.getElementById("shadow-root")?.remove();
 	}
 
-	// Shadow DOM 内のルート要素を構築
 	const shadowInternalRoot = createInternalRootElement();
 	shadowRoot.appendChild(shadowInternalRoot);
 
+	// レンダリング
 	createRoot(shadowInternalRoot).render(<ShadowRootElement />);
 }
 
@@ -73,20 +75,12 @@ export function ShadowDomPage2(): JSX.Element {
 			<Information>Shadow DOM 配下の要素がスタイルを持つ</Information>
 
 			<div style={{ fontWeight: "bold", fontSize: "20px" }}>
-				<div id="shadow-placeholder" style={{ backgroundColor: "#f0f0f0", padding: "10px", border: "1px solid #909090" }}>
+				<div id="shadow-placeholder">
 					{/* ここに Shadow DOM が形成される */}
 				</div>
 			</div>
 
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
-			<p className="read-the-docs">&nbsp;</p>
+			<p>この font-size は？</p>
 		</>
 	);
 }
@@ -94,5 +88,10 @@ export function ShadowDomPage2(): JSX.Element {
 function ShadowRootElement(): JSX.Element {
 	// const [shadowRoot, setShadowRoot] = useState<ShadowRoot | null>(null);
 
-	return <div className="super-fat">Shadow DOM is ready</div>;
+	return (
+		<>
+			<div className="super-fat">Shadow DOM is ready</div>
+			<p>この font-size は？</p>
+		</>
+	);
 }
