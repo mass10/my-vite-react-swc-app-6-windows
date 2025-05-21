@@ -19,6 +19,12 @@ export function DocumentFragmentExamplePage(): JSX.Element {
 
                     </ul>
                 </div>
+                <div style={{ backgroundColor: "#e9e9e9" }}>
+                    <h2>Right</h2>
+                    <ul>
+
+                    </ul>
+                </div>
 			</div>
 		</>
     );
