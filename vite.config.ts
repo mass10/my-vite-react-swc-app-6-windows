@@ -24,6 +24,7 @@ export default defineConfig({
         "shadow-dom-1": "shadow-dom-1/index.html",
         "shadow-dom-2": "shadow-dom-2/index.html",
         "custom-elements": "custom-elements/index.html",
+        "document-fragment": "document-fragment/index.html",
       }
     }
   }
