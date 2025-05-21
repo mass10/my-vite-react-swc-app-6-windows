@@ -3,7 +3,7 @@ import { PageContext } from "../lib/utils";
 /**
  * サイドメニューのアイテム
  */
-function SideMenuLinkItem(props: {
+function SideMenuItem(props: {
 	href?: string;
 	onClick?: (info: string) => void;
 	children?: React.ReactNode;
@@ -22,11 +22,17 @@ function SideMenuLinkItem(props: {
 	);
 }
 
-function LinkItems(props: { children: React.ReactNode }): JSX.Element {
+/**
+ * 再度メニューのアイテムをたばねるもの
+ *
+ * @param props 
+ * @returns 
+ */
+function SideMenuItemsList(props: { children: React.ReactNode }): JSX.Element {
 	return <ul>{props.children}</ul>;
 }
 
-type Props = {
+type SidePanelProps = {
 	pageContext: PageContext;
 	handleAnchor: (info: string) => void;
 };
@@ -34,7 +40,7 @@ type Props = {
 /**
  * サイドバー
  */
-export function SidePanel(props: Props): JSX.Element {
+export function SidePanel(props: SidePanelProps): JSX.Element {
 	// ・「SPA の描画」と、「ページ遷移」の2種類を確認中。
 	return (
 		<div
@@ -46,28 +52,29 @@ export function SidePanel(props: Props): JSX.Element {
 				overflowY: "auto",
 			}}
 		>
-			<LinkItems>
-				<SideMenuLinkItem href="/">Home</SideMenuLinkItem>
-				<SideMenuLinkItem onClick={() => props.handleAnchor("https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8")}>
+			<SideMenuItemsList>
+				<SideMenuItem href="/">Home</SideMenuItem>
+				<SideMenuItem onClick={() => props.handleAnchor("https://www.youtube.com/embed/9TsJMHELXzs?si=wozbKk6IggacAGv8")}>
 					YouTube 動画の埋め込み
-				</SideMenuLinkItem>
-				<SideMenuLinkItem href="/embedded1">YouTube 動画の埋め込み(/embedded1)</SideMenuLinkItem>
-				<SideMenuLinkItem onClick={() => props.handleAnchor("チャレンジ1")}>fetch チャレンジ 1</SideMenuLinkItem>
-				<SideMenuLinkItem href="/floating-layout-example/">フローティングなレイアウト</SideMenuLinkItem>
-				<SideMenuLinkItem href="/grid-layout-example/">グリッドなレイアウト</SideMenuLinkItem>
-				<SideMenuLinkItem href="/large-canvas-1/">大きなキャンバス</SideMenuLinkItem>
-				<SideMenuLinkItem href="/scale-or-zoom/">transform or zoom (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/zoom2/">transform or zoom (2)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/iframe1/">iframe (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/popup/">popup (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/element-rect/">element-rect (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/yoko-scroll-table/">yoko scroll table (1)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/font-awesome/">Font Awesome</SideMenuLinkItem>
-				<SideMenuLinkItem href="/canvas-1/">Canvas のテスト1</SideMenuLinkItem>
-				<SideMenuLinkItem href="/shadow-dom-1/">Shadow DOM 要素(宣言的な)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/shadow-dom-2/">Shadow DOM 要素(ダイナミックな)</SideMenuLinkItem>
-				<SideMenuLinkItem href="/custom-elements/">カスタム要素</SideMenuLinkItem>
-			</LinkItems>
+				</SideMenuItem>
+				<SideMenuItem href="/embedded1">YouTube 動画の埋め込み(/embedded1)</SideMenuItem>
+				<SideMenuItem onClick={() => props.handleAnchor("チャレンジ1")}>fetch チャレンジ 1</SideMenuItem>
+				<SideMenuItem href="/floating-layout-example/">フローティングなレイアウト</SideMenuItem>
+				<SideMenuItem href="/grid-layout-example/">グリッドなレイアウト</SideMenuItem>
+				<SideMenuItem href="/large-canvas-1/">大きなキャンバス</SideMenuItem>
+				<SideMenuItem href="/scale-or-zoom/">transform or zoom (1)</SideMenuItem>
+				<SideMenuItem href="/zoom2/">transform or zoom (2)</SideMenuItem>
+				<SideMenuItem href="/iframe1/">iframe (1)</SideMenuItem>
+				<SideMenuItem href="/popup/">popup (1)</SideMenuItem>
+				<SideMenuItem href="/element-rect/">element-rect (1)</SideMenuItem>
+				<SideMenuItem href="/yoko-scroll-table/">yoko scroll table (1)</SideMenuItem>
+				<SideMenuItem href="/font-awesome/">Font Awesome</SideMenuItem>
+				<SideMenuItem href="/canvas-1/">Canvas のテスト1</SideMenuItem>
+				<SideMenuItem href="/shadow-dom-1/">Shadow DOM 要素(宣言的な)</SideMenuItem>
+				<SideMenuItem href="/shadow-dom-2/">Shadow DOM 要素(ダイナミックな)</SideMenuItem>
+				<SideMenuItem href="/custom-elements/">カスタム要素</SideMenuItem>
+				<SideMenuItem href="/document-fragment/">document fragment の実験</SideMenuItem>
+			</SideMenuItemsList>
 		</div>
 	);
 }
