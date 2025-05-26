@@ -14,7 +14,7 @@ function createInternalRootElement(): HTMLElement {
 	const shadowInternalRoot = document.createElement("div");
 	shadowInternalRoot.setAttribute("id", "shadow-root");
 	shadowInternalRoot.setAttribute("class", "shadow-root");
-	shadowInternalRoot.setAttribute("part", "974cd239-977a-41df-b21f-389aa11c6f51");
+	shadowInternalRoot.setAttribute("part", "e7e6d914-f1c1-4440-9aa9-b03cdf789286");
 
 	const shadowStyle = document.createElement("style");
 	shadowStyle.textContent = `
