@@ -82,8 +82,6 @@ export function ShadowDomPage2(): JSX.Element {
 }
 
 function ShadowRootElement(): JSX.Element {
-	// const [shadowRoot, setShadowRoot] = useState<ShadowRoot | null>(null);
-
 	return (
 		<>
 			<div className="super-fat">Shadow DOM is ready</div>
