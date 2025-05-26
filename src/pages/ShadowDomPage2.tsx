@@ -19,8 +19,6 @@ function createInternalRootElement(): HTMLElement {
 	const shadowStyle = document.createElement("style");
 	shadowStyle.textContent = `
 	.shadow-root {
-		background-color: #f0f0f0;
-		border: 1px solid #909090;
 		padding: 10px;
 	}`;
 	shadowInternalRoot.appendChild(shadowStyle);
