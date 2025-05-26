@@ -76,7 +76,7 @@ export function ShadowDomPage2(): JSX.Element {
 				</div>
 			</div>
 
-			<p>この font-size は？</p>
+			<p>この font-size は？(1)</p>
 		</>
 	);
 }
@@ -87,7 +87,7 @@ function ShadowRootElement(): JSX.Element {
 	return (
 		<>
 			<div className="super-fat">Shadow DOM is ready</div>
-			<p>この font-size は？</p>
+			<p>この font-size は？(2)</p>
 		</>
 	);
 }
