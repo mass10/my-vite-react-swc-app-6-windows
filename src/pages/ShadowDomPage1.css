@@ -2,6 +2,6 @@
     background-color: #e0e0e0;
 }
 
-.shadow-dom-page-1-container::part(div-in-shadow-dom) {
+.shadow-dom-page-1-container::part(f79d2355-971d-4dcc-85b2-26ce4e8c2b55) {
     background-color: aqua;
 }
