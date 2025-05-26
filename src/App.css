@@ -77,3 +77,11 @@ p {
 #shadow-placeholder {
 	font-size: 50px;
 }
+
+#shadow-placeholder {
+	background-color: #e0e0e0;
+}
+
+#shadow-placeholder::part(div-in-shadow-dom) {
+	background-color: aqua;
+}
