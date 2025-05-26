@@ -1,7 +1,7 @@
-.shadow-dom-page-1-container {
+.shadow-placeholder {
     background-color: #e0e0e0;
 }
 
-.shadow-dom-page-1-container::part(div-in-shadow-dom) {
+.shadow-placeholder::part(div-in-shadow-dom) {
     background-color: aqua;
 }
