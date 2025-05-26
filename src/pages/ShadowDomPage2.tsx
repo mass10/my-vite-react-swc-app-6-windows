@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { PageTitle, Spacer } from "../lib/utils";
 import { Information } from "../atom/Information";
-import { render } from "react-dom";
 import { createRoot } from "react-dom/client";
 
 /**
@@ -15,7 +14,7 @@ function createInternalRootElement(): HTMLElement {
 	const shadowInternalRoot = document.createElement("div");
 	shadowInternalRoot.setAttribute("id", "shadow-root");
 	shadowInternalRoot.setAttribute("class", "shadow-root");
-	shadowInternalRoot.setAttribute("part", "div-in-shadow-dom");
+	shadowInternalRoot.setAttribute("part", "974cd239-977a-41df-b21f-389aa11c6f51");
 
 	const shadowStyle = document.createElement("style");
 	shadowStyle.textContent = `
