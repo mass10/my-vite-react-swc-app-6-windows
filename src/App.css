@@ -82,6 +82,6 @@ p {
 	background-color: #e0e0e0;
 }
 
-#shadow-placeholder::part(div-in-shadow-dom) {
+#shadow-placeholder::part(974cd239-977a-41df-b21f-389aa11c6f51) {
 	background-color: aqua;
 }
