@@ -15,6 +15,7 @@ function createInternalRootElement(): HTMLElement {
 	const shadowInternalRoot = document.createElement("div");
 	shadowInternalRoot.setAttribute("id", "shadow-root");
 	shadowInternalRoot.setAttribute("class", "shadow-root");
+	shadowInternalRoot.setAttribute("part", "div-in-shadow-dom");
 
 	const shadowStyle = document.createElement("style");
 	shadowStyle.textContent = `
