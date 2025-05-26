@@ -42,9 +42,7 @@ function initializeShadowDom(): void {
 	const shadowRoot = host.shadowRoot || host.attachShadow({ mode: "open" });
 
 	// Shadow DOM 内のルート要素を構築
-	if (shadowRoot.getElementById("shadow-root")) {
-		shadowRoot.getElementById("shadow-root")?.remove();
-	}
+	shadowRoot.getElementById("shadow-root")?.remove();
 
 	const shadowInternalRoot = createInternalRootElement();
 	shadowRoot.appendChild(shadowInternalRoot);
