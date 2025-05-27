@@ -1,7 +1,7 @@
-.shadow-dom-page-1-container {
+#shadow-dom-page-1-host-root-1 {
     background-color: #e0e0e0;
 }
 
-.shadow-dom-page-1-container::part(f79d2355-971d-4dcc-85b2-26ce4e8c2b55) {
+#shadow-dom-page-1-host-root-1::part(f79d2355-971d-4dcc-85b2-26ce4e8c2b55) {
     background-color: aqua;
 }
