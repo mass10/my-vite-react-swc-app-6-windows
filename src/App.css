@@ -74,14 +74,14 @@ p {
 	font-size: 24px;
 }
 
-#shadow-placeholder {
-	font-size: 50px;
+#shadow-dom-page-2-shadow-placeholder {
+	/* font-size: 50px; */
 }
 
-#shadow-placeholder {
-	background-color: #e0e0e0;
-}
-
-#shadow-placeholder::part(e7e6d914-f1c1-4440-9aa9-b03cdf789286) {
-	background-color: aqua;
+#shadow-dom-page-2-shadow-placeholder::part(e7e6d914-f1c1-4440-9aa9-b03cdf789286) {
+	background-color: gray;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 20px;
+	text-align: left;
 }
