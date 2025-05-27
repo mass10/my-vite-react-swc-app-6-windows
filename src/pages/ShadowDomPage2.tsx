@@ -3,27 +3,34 @@ import { PageTitle, Spacer } from "../lib/utils";
 import { Information } from "../atom/Information";
 import { createRoot } from "react-dom/client";
 
+const SHADOW_ROOT_ELEMENT_ID = "shadow-root";
+
+function createShadowRootStyle(id: string): HTMLStyleElement {
+	const shadowStyle = document.createElement("style");
+
+	shadowStyle.textContent = `
+	#${id} {
+		padding: 10px;
+	}`;
+
+	return shadowStyle;
+}
+
 /**
  * Shadow DOM 内のルート要素を作成します。
  *
  * @returns 
  */
-function createInternalRootElement(): HTMLElement {
-
+function createInternalRootElement(id: string): HTMLElement {
 	// Shadow DOM 内のルート要素
-	const shadowInternalRoot = document.createElement("div");
-	shadowInternalRoot.setAttribute("id", "shadow-root");
-	shadowInternalRoot.setAttribute("class", "shadow-root");
-	shadowInternalRoot.setAttribute("part", "e7e6d914-f1c1-4440-9aa9-b03cdf789286");
+	const div = document.createElement("div");
+	div.setAttribute("id", id);
+	div.setAttribute("part", "e7e6d914-f1c1-4440-9aa9-b03cdf789286");
 
-	const shadowStyle = document.createElement("style");
-	shadowStyle.textContent = `
-	.shadow-root {
-		padding: 10px;
-	}`;
-	shadowInternalRoot.appendChild(shadowStyle);
+	// スタイルを指定
+	div.appendChild(createShadowRootStyle(id));
 
-	return shadowInternalRoot;
+	return div;
 }
 
 /**
@@ -33,7 +40,7 @@ function createInternalRootElement(): HTMLElement {
  */
 function initializeShadowDom(): void {
 	// ホストルート
-	const host = document.getElementById("shadow-placeholder");
+	const host = document.getElementById("shadow-dom-page-2-shadow-placeholder");
 	if (!host) {
 		return;
 	}
@@ -41,10 +48,10 @@ function initializeShadowDom(): void {
 	// ShadowRoot を取得
 	const shadowRoot = host.shadowRoot || host.attachShadow({ mode: "open" });
 
-	// Shadow DOM 内のルート要素を構築
-	shadowRoot.getElementById("shadow-root")?.remove();
+	shadowRoot.getElementById(SHADOW_ROOT_ELEMENT_ID)?.remove();
 
-	const shadowInternalRoot = createInternalRootElement();
+	// Shadow DOM 内のルート要素を構築
+	const shadowInternalRoot = createInternalRootElement(SHADOW_ROOT_ELEMENT_ID);
 	shadowRoot.appendChild(shadowInternalRoot);
 
 	// レンダリング
@@ -70,22 +77,46 @@ export function ShadowDomPage2(): JSX.Element {
 			<Spacer />
 			<Information>Shadow DOM 配下の要素がスタイルを持つ</Information>
 
-			<div style={{ fontWeight: "bold", fontSize: "20px" }}>
-				<div id="shadow-placeholder">
-					{/* ここに Shadow DOM が形成される */}
-				</div>
+			<Spacer />
+			<div id="shadow-dom-page-2-shadow-placeholder">
+				{/* ここに Shadow DOM が形成される */}
 			</div>
-
-			<p>この font-size は？(1)</p>
 		</>
 	);
 }
 
 function ShadowRootElement(): JSX.Element {
 	return (
-		<>
-			<div className="super-fat">Shadow DOM is ready</div>
-			<p>この font-size は？(2)</p>
-		</>
+		<div>
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+			Shadow DOM
+		</div>
 	);
 }
