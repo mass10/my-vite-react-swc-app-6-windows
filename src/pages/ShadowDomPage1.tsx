@@ -10,7 +10,7 @@ import "./ShadowDomPage1.css";
  */
 export function ShadowDomPage1(): JSX.Element {
 	return (
-		<div className="shadow-dom-page-1-container">
+		<div>
 			<PageTitle>Shadow DOM の確認 (1)</PageTitle>
 
 			<Spacer />
