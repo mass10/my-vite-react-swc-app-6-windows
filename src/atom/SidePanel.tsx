@@ -65,6 +65,7 @@ export function SidePanel(props: SidePanelProps): JSX.Element {
 				<SideMenuItem href="/scale-or-zoom/">transform or zoom (1)</SideMenuItem>
 				<SideMenuItem href="/zoom2/">transform or zoom (2)</SideMenuItem>
 				<SideMenuItem href="/iframe1/">iframe (1)</SideMenuItem>
+				<SideMenuItem href="/iframe2/">iframe (2)</SideMenuItem>
 				<SideMenuItem href="/popup/">popup (1)</SideMenuItem>
 				<SideMenuItem href="/element-rect/">element-rect (1)</SideMenuItem>
 				<SideMenuItem href="/yoko-scroll-table/">yoko scroll table (1)</SideMenuItem>
