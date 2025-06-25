@@ -8,6 +8,7 @@ import { LargeCanvasPage1 } from "../pages/LargeCanvas1";
 import { TransformOrZoomPage1 } from "../pages/ScaleOrZoomPage1";
 import { Zoom2 } from "../pages/Zoom2";
 import { Iframe1 } from "../pages/Iframe1";
+import { Iframe2 } from "../pages/Iframe2";
 import { ElementRectPage } from "../pages/ElementRectPage";
 import { YokoScrollTablePage } from "../pages/YokoScrollTablePage";
 import { FontAwesome } from "../pages/FontAwesome";
@@ -58,6 +59,8 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 		return <Zoom2 />;
 	} else if (window.location.pathname === "/iframe1/") {
 		return <Iframe1 />;
+	} else if (window.location.pathname === "/iframe2/") {
+		return <Iframe2 />;
 	} else if (window.location.pathname === "/popup/") {
 		return <PopupExample />;
 	} else if (window.location.pathname === "/element-rect/") {
