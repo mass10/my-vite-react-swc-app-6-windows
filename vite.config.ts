@@ -15,6 +15,7 @@ export default defineConfig({
         "grid-layout-example": "grid-layout-example/index.html",
         "iframe1": "iframe1/index.html",
         "iframe2": "iframe2/index.html",
+        "iframe3": "iframe3/index.html",
         "popup": "popup/index.html",
         "large-canvas-1": "large-canvas-1/index.html",
         "scale-or-zoom": "scale-or-zoom/index.html",
