@@ -76,6 +76,7 @@ export function SidePanel(props: SidePanelProps): JSX.Element {
 				<SideMenuItem href="/shadow-dom-2/">Shadow DOM 要素(ダイナミックな)</SideMenuItem>
 				<SideMenuItem href="/custom-elements/">カスタム要素</SideMenuItem>
 				<SideMenuItem href="/document-fragment/">document fragment の実験</SideMenuItem>
+				<SideMenuItem href="/images1/">画像がいくつかある</SideMenuItem>
 			</SideMenuItemsList>
 		</div>
 	);

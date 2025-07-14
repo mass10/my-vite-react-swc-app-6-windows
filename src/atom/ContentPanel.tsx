@@ -19,6 +19,7 @@ import { CustomElements } from "../pages/CustomElements";
 import { ShadowDomPage1 } from "../pages/ShadowDomPage1";
 import { ShadowDomPage2 } from "../pages/ShadowDomPage2";
 import { DocumentFragmentExamplePage } from "../pages/DocumentFragmentExamplePage";
+import { Images1Page } from "../pages/Images1";
 
 type DefaultPageProps = {
 	menuitem: string;
@@ -85,6 +86,8 @@ function ContentSwitch(props: { menuitem: string }): JSX.Element {
 		return <CustomElements />;
 	} else if (window.location.pathname === "/document-fragment/") {
 		return <DocumentFragmentExamplePage />;
+	} else if (window.location.pathname === "/images1/") {
+		return <Images1Page />;
 	} else if (props.menuitem) {
 		console.warn(`Unknown menu item: ${props.menuitem}`);
 	}
