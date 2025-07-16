@@ -28,6 +28,7 @@ export default defineConfig({
         "custom-elements": "custom-elements/index.html",
         "document-fragment": "document-fragment/index.html",
         "images1": "images1/index.html",
+        "images2": "images2/index.html",
       }
     }
   }
