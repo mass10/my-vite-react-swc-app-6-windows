@@ -34,13 +34,13 @@ export function Images0Page(props: {}): JSX.Element {
 
 	return (
 		<>
-			<PageTitle>画像 x 10個 (同一の URL)</PageTitle>
+			<PageTitle>画像 x 10個 (ユニークな10個の URL)</PageTitle>
 
 			<Spacer />
 			<Information>画像ファイルのサンプルです。</Information>
 
 			<Spacer />
-			<RepeatComponent n={100} />
+			<RepeatComponent n={10} />
 		</>
 	);
 }
